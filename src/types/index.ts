@@ -1,11 +1,11 @@
 /*
- * Copyright (C) 2024 Bikeletics.com - All Rights Reserved
+ * Copyright (C) 2024 MoodMotion.io - All Rights Reserved
  *
  *   ----------------------------
  *    Proprietary and confidential
  *   ----------------------------
  *
- * This file is part of the Bikeletics Ride application
+ * This file is part of the MoodMotion application
  *
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
@@ -13,9 +13,9 @@
 import { store } from "@state"
 
 /**
- * This namespace encapsulates all Bikeletics specific types
+ * This namespace encapsulates all MoodMotion specific types
  */
-export namespace Bikeletics {
+export namespace MoodMotion {
 
     /**
      * The main navigation entries.
@@ -41,7 +41,7 @@ export namespace Bikeletics {
     export type State = ReturnType<typeof store.getState>
 
     /**
-     * Error definition as thrown by the Bikeletics API 
+     * Error definition as thrown by the MoodMotion API 
      */
     export type ApiError = {
         // a status description of the current error (e.g. Not Found)

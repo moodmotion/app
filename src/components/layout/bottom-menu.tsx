@@ -1,11 +1,11 @@
 /*
- * Copyright (C) 2024 Bikeletics.com - All Rights Reserved
+ * Copyright (C) 2024 MoodMotion.io - All Rights Reserved
  *
  *   ----------------------------
  *    Proprietary and confidential
  *   ----------------------------
  *
- * This file is part of the Bikeletics Ride application
+ * This file is part of the MoodMotion application
  *
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
@@ -13,7 +13,7 @@
 import { useState } from 'react'
 import { BottomNavigation, BottomNavigationAction, Paper } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import { Bikeletics } from '@types'
+import { MoodMotion } from '@types'
 import { DotLabel } from '@components/branding'
 
 export const BottomMenu = () => {
@@ -32,11 +32,11 @@ export const BottomMenu = () => {
 
                 <BottomNavigationAction
                     label={<DotLabel text={'You'} />}
-                    onClick={() => navigate(Bikeletics.Screen.Home)} />
+                    onClick={() => navigate(MoodMotion.Screen.Home)} />
 
                 <BottomNavigationAction
                     label={<DotLabel text={'We'} />}
-                    onClick={() => navigate(Bikeletics.Screen.Book)} />
+                    onClick={() => navigate(MoodMotion.Screen.Book)} />
 
             </BottomNavigation>
         </Paper>

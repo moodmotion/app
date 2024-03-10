@@ -1,11 +1,11 @@
 /*
- * Copyright (C) 2024 Bikeletics.com - All Rights Reserved
+ * Copyright (C) 2024 MoodMotion.io - All Rights Reserved
  *
  *   ----------------------------
  *    Proprietary and confidential
  *   ----------------------------
  *
- * This file is part of the Bikeletics Ride application
+ * This file is part of the MoodMotion application
  *
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
@@ -17,7 +17,7 @@ import { Grid, useTheme, Stack } from '@mui/material'
 
 import { login } from '@features'
 import { isAuthenticated } from '@state'
-import { Bikeletics } from '@types'
+import { MoodMotion } from '@types'
 import { Name } from '@components/branding'
 import { Input, ActionButton } from '@components/input'
 
@@ -37,7 +37,7 @@ const Login = () => {
 
     useEffect(() => {
         if (authenticated) {
-            navigate(Bikeletics.Screen.Home)
+            navigate(MoodMotion.Screen.Home)
         }
     }, [navigate])
 

@@ -1,23 +1,23 @@
 /*
- * Copyright (C) 2024 Bikeletics.com - All Rights Reserved
+ * Copyright (C) 2024 MoodMotion.io - All Rights Reserved
  *
  *   ----------------------------
  *    Proprietary and confidential
  *   ----------------------------
  *
- * This file is part of the Bikeletics Ride application
+ * This file is part of the MoodMotion application
  *
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-import {Card, CardMedia, CardContent, Typography, Button, Divider, CardActions} from '@mui/material'
+import { Card, CardMedia, CardContent, Typography, Button, Divider, CardActions } from '@mui/material'
 
-export const SimpleCard = ({title, help, image, action}) => {
+export const SimpleCard = ({ title, help, image, action }: { title: string, help: string, image: string, action: string }) => {
 
     return (
-        <Card sx={{width: '95vw'}} elevation={4}>
+        <Card sx={{ width: '95vw' }} elevation={4}>
             <CardMedia
-                sx={{p: 1}}
+                sx={{ p: 1 }}
                 component="img"
                 height="140"
                 image={image}
@@ -31,8 +31,8 @@ export const SimpleCard = ({title, help, image, action}) => {
                     {help}
                 </Typography>
             </CardContent>
-            <Divider sx={{mx: 2}}/>
-            <CardActions sx={{ml: 1}}>
+            <Divider sx={{ mx: 2 }} />
+            <CardActions sx={{ ml: 1 }}>
                 <Button variant={'contained'}>{action}</Button>
             </CardActions>
         </Card>

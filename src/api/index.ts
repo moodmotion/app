@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Bikeletics } from '@types'
+import { MoodMotion } from '@types'
 
 // base url of the api
 const apiUrl: string = 'http://localhost:3000/v1'
@@ -11,10 +11,10 @@ const authUrl: string = '/auth'
 export const auth = {
     register: `${authUrl}/register`,
     login: `${authUrl}/login`,
-    logout: `${authUrl}/logout` 
+    logout: `${authUrl}/logout`
 }
 
-const apiError: Bikeletics.ApiError = {
+const apiError: MoodMotion.ApiError = {
     status: '',
     code: 0,
     message: '',
@@ -35,13 +35,15 @@ export const post = async (
     } catch (error: any) {
 
         if (error.response) {
-            apiError.status = error.response.status
-            apiError.code = error.response.data.code
-            apiError.message = error.response.data.message
+            const { status, data } = error.response
+            apiError.status = status
+            apiError.code = data.code
+            apiError.message = data.message
         } else {
-            apiError.status = error.name
-            apiError.code = error.code
-            apiError.message = error.message
+            const { name, code, message } = error
+            apiError.status = name
+            apiError.code = code
+            apiError.message = message
         }
 
         return thunkAPI.rejectWithValue(apiError)

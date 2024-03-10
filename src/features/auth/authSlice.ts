@@ -1,23 +1,23 @@
 /*
- * Copyright (C) 2024 Bikeletics.com - All Rights Reserved
+ * Copyright (C) 2024 MoodMotion.io - All Rights Reserved
  *
  *   ----------------------------
  *    Proprietary and confidential
  *   ----------------------------
  *
- * This file is part of the Bikeletics Ride application
+ * This file is part of the MoodMotion application
  *
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-import { Bikeletics } from '@types'
+import { MoodMotion } from '@types'
 import { post, auth } from '@api'
 
-const ApiStatus = Bikeletics.ApiStatus
+const ApiStatus = MoodMotion.ApiStatus
 
-export const register = createAsyncThunk<Bikeletics.RegisterResponse, {}, { rejectValue: Bikeletics.ApiError }>(
+export const register = createAsyncThunk<MoodMotion.RegisterResponse, {}, { rejectValue: MoodMotion.ApiError }>(
     'auth/register',
     (credentials, thunkAPI) => post({
         path: auth.register,
@@ -26,7 +26,7 @@ export const register = createAsyncThunk<Bikeletics.RegisterResponse, {}, { reje
     })
 )
 
-export const login = createAsyncThunk<Bikeletics.LoginResponse, {}, { rejectValue: Bikeletics.ApiError }>(
+export const login = createAsyncThunk<MoodMotion.LoginResponse, {}, { rejectValue: MoodMotion.ApiError }>(
     'auth/login',
     (credentials, thunkAPI) => post({
         path: auth.login,
@@ -35,7 +35,7 @@ export const login = createAsyncThunk<Bikeletics.LoginResponse, {}, { rejectValu
     })
 )
 
-export const logout = createAsyncThunk<void, {}, { rejectValue: Bikeletics.ApiError }>(
+export const logout = createAsyncThunk<void, {}, { rejectValue: MoodMotion.ApiError }>(
     'auth/logout',
     (refreshToken, thunkAPI) => post({
         path: auth.logout,
@@ -44,7 +44,7 @@ export const logout = createAsyncThunk<void, {}, { rejectValue: Bikeletics.ApiEr
     })
 )
 
-const initialState: Bikeletics.AuthState = {
+const initialState: MoodMotion.AuthState = {
     authenticated: false,
     status: ApiStatus.Idle,
     error: {
@@ -53,7 +53,7 @@ const initialState: Bikeletics.AuthState = {
         message: ''
     },
     user: {
-        lang: Bikeletics.Language.English,
+        lang: MoodMotion.Language.English,
         name: '',
         email: '',
         isEmailVerified: false,

@@ -8,7 +8,7 @@ describe('Branding', () => {
 
         render(<Name variant={'h1'}/>)
         await screen.findByRole('heading')
-        expect(screen.getByRole('heading').textContent).toBe('BIKELETICS.')
+        expect(screen.getByRole('heading').textContent).toBe('MoodMotion')
     })
 
 })
