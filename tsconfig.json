@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "lib": [
+      "ES2021.String",
+      "DOM"
+    ],
+    "paths": {
+      "@api": [
+        "./src/api"
+      ],
+      "@assets/*": [
+        "./src/assets/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@features": [
+        "./src/features"
+      ],
+      "@screens": [
+        "./src/screens"
+      ],
+      "@state": [
+        "./src/state"
+      ],
+      "@styles": [
+        "./src/styles"
+      ],
+      "@types": [
+        "./src/types"
+      ]
+    }
+  },
+  "include": [
+    "src"
+  ]
+}
