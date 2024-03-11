@@ -1,3 +1,15 @@
+/*
+ * Copyright (C) 2024 MoodMotion.io - All Rights Reserved
+ *
+ *   ----------------------------
+ *    Proprietary and confidential
+ *   ----------------------------
+ *
+ * This file is part of the MoodMotion application
+ *
+ * Unauthorized copying of this file, via any medium is 
+ * strictly prohibited.
+ */
 import axios from 'axios'
 import { MoodMotion } from '@types'
 
@@ -35,12 +47,17 @@ export const post = async (
     } catch (error: any) {
 
         if (error.response) {
+
             const { status, data } = error.response
+
             apiError.status = status
             apiError.code = data.code
             apiError.message = data.message
+
         } else {
+
             const { name, code, message } = error
+
             apiError.status = name
             apiError.code = code
             apiError.message = message

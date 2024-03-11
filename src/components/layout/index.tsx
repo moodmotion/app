@@ -10,5 +10,3 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-export {TopBar} from './top-bar'
-export {BottomMenu} from './bottom-menu'

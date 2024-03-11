@@ -15,12 +15,10 @@ import { MoodMotion } from '@types'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { Box } from '@mui/material'
 
-import { BottomMenu, TopBar } from '@components/layout'
 import { RequireAuthentication } from '@components/auth'
 
 const Login = lazy(() => import('./login'))
 const Home = lazy(() => import('./home'))
-const Book = lazy(() => import('./book'))
 
 const load = (component: ReactElement) => {
     return (<Suspense>{component}</Suspense>)
@@ -31,8 +29,7 @@ const publicScreens: { [index: string]: ReactElement } = {
 }
 
 const privateScreens: { [index: string]: ReactElement } = {
-    [MoodMotion.Screen.Home]: load(<Home />),
-    [MoodMotion.Screen.Book]: load(<Book />)
+    [MoodMotion.Screen.Home]: load(<Home />)
 }
 
 const Screens = () => {
@@ -55,13 +52,9 @@ const Screens = () => {
                 privateScreenKeys.map(key => (
                     <Route path={`${key}/*`} element={
                         <RequireAuthentication>
-                            <Box>
-                                <TopBar />
-                                <Box sx={{ pt: 7 }}>
-                                    {privateScreens[key]}
-                                </Box>
-                                <BottomMenu />
-                            </Box>
+                            {
+                                privateScreens[key]
+                            }
                         </RequireAuthentication>
                     } key={key} />)
                 )

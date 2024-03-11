@@ -42,7 +42,7 @@ const Login = () => {
     }, [navigate])
 
     return (
-        <Grid container sx={{ backgroundColor: theme.palette.primary.main, height: '100vh' }}>
+        <Grid container sx={{ height: '100vh' }}>
             <Grid item xs={12} sx={{ mt: 25, textAlign: 'center' }}>
                 <Stack
                     direction="column"

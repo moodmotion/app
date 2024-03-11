@@ -10,17 +10,10 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-import { TextField, useTheme } from '@mui/material'
+import { TextField, TextFieldProps, useTheme } from '@mui/material'
 import { useIntl } from 'react-intl'
-import { ChangeEventHandler } from 'react'
 
-type InputProps = {
-    id: string
-    required?: boolean
-    onChange?: ChangeEventHandler
-}
-
-export const Input = ({ id, onChange, ...props }: InputProps) => {
+export const Input = ({ id, onChange, ...props }: TextFieldProps) => {
 
     const intl = useIntl()
     const theme = useTheme()
