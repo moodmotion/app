@@ -24,10 +24,8 @@ export namespace MoodMotion {
      */
     export enum Screen {
         Login = '/login',
-        Home = '/home',
-        Book = '/book'
+        Composer = '/composer'
     }
-
 
     export type Credentials = {
         email: string,

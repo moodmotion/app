@@ -11,25 +11,27 @@
  * strictly prohibited.
  */
 import { lazy, Suspense, ReactElement } from 'react'
-import { MoodMotion } from '@types'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { Box } from '@mui/material'
 
+import { MoodMotion } from '@types'
+import { Shelf } from '@components/layout'
 import { RequireAuthentication } from '@components/auth'
+import Screen = MoodMotion.Screen
 
 const Login = lazy(() => import('./login'))
-const Home = lazy(() => import('./home'))
+const Composer = lazy(() => import('./composer'))
 
 const load = (component: ReactElement) => {
     return (<Suspense>{component}</Suspense>)
 }
 
 const publicScreens: { [index: string]: ReactElement } = {
-    [MoodMotion.Screen.Login]: load(<Login />),
+    [Screen.Login]: load(<Login />),
 }
 
 const privateScreens: { [index: string]: ReactElement } = {
-    [MoodMotion.Screen.Home]: load(<Home />)
+    [Screen.Composer]: load(<Composer />)
 }
 
 const Screens = () => {
@@ -38,7 +40,7 @@ const Screens = () => {
     const privateScreenKeys: string[] = Object.keys(privateScreens)
 
     const getDefaultScreen = () => {
-        return (<Route path="*" element={<Navigate to={MoodMotion.Screen.Home} replace />} />)
+        return (<Route path="*" element={<Navigate to={Screen.Composer} replace />} />)
     }
 
     return (
@@ -52,9 +54,12 @@ const Screens = () => {
                 privateScreenKeys.map(key => (
                     <Route path={`${key}/*`} element={
                         <RequireAuthentication>
-                            {
-                                privateScreens[key]
-                            }
+                            <Box sx={{ display: 'flex' }}>
+                                <Shelf />
+                                <Box component="main" sx={{ flexGrow: 1, pl: 9 }}>
+                                    {privateScreens[key]}
+                                </Box>
+                            </Box>
                         </RequireAuthentication>
                     } key={key} />)
                 )

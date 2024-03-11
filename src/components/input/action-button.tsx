@@ -22,8 +22,8 @@ export const ActionButton = ({ action }: ActionButtonProps) => {
     const dispatch = useDispatch()
 
     return (
-        <Button variant={'contained'}
-            color={'secondary'}
+        <Button
+            variant={'contained'}
             onClick={() => dispatch(action)}>Login</Button>
     )
 }

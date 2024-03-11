@@ -10,7 +10,7 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-import { ChangeEvent, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Grid, useTheme, Stack } from '@mui/material'
@@ -20,6 +20,7 @@ import { isAuthenticated } from '@state'
 import { MoodMotion } from '@types'
 import { Name } from '@components/branding'
 import { Input, ActionButton } from '@components/input'
+import Screen = MoodMotion.Screen
 
 const Login = () => {
 
@@ -37,7 +38,7 @@ const Login = () => {
 
     useEffect(() => {
         if (authenticated) {
-            navigate(MoodMotion.Screen.Home)
+            navigate(Screen.Composer)
         }
     }, [navigate])
 

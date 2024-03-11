@@ -10,4 +10,21 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-export {SimpleCard} from './simple'
+import { Grid } from '@mui/material'
+
+const Composer = () => {
+
+    return (
+
+        <Grid container>
+
+            <Grid item>
+                Composer
+            </Grid>
+
+        </Grid>
+
+    )
+}
+
+export default Composer

@@ -13,7 +13,9 @@
 import { createTheme, ThemeOptions, responsiveFontSizes } from '@mui/material/styles'
 
 const options: ThemeOptions = {
-    palette: {}
+    palette: {
+        mode: 'dark'
+    }
 }
 
 export default responsiveFontSizes(createTheme(options))
