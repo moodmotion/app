@@ -21,6 +21,8 @@ import Screen = MoodMotion.Screen
 
 const Login = lazy(() => import('./login'))
 const Composer = lazy(() => import('./composer'))
+const Project = lazy(() => import('./project'))
+
 
 const load = (component: ReactElement) => {
     return (<Suspense>{component}</Suspense>)
@@ -31,7 +33,8 @@ const publicScreens: { [index: string]: ReactElement } = {
 }
 
 const privateScreens: { [index: string]: ReactElement } = {
-    [Screen.Composer]: load(<Composer />)
+    [Screen.Project]: load(<Project />)
+
 }
 
 const Screens = () => {
@@ -40,7 +43,7 @@ const Screens = () => {
     const privateScreenKeys: string[] = Object.keys(privateScreens)
 
     const getDefaultScreen = () => {
-        return (<Route path="*" element={<Navigate to={Screen.Composer} replace />} />)
+        return (<Route path="*" element={<Navigate to={Screen.Project} replace />} />)
     }
 
     return (
@@ -56,9 +59,10 @@ const Screens = () => {
                         <RequireAuthentication>
                             <Box sx={{ display: 'flex' }}>
                                 <Shelf />
-                                <Box component="main" sx={{ flexGrow: 1, pl: 9 }}>
+                                <Composer>
                                     {privateScreens[key]}
-                                </Box>
+                                </Composer>
+
                             </Box>
                         </RequireAuthentication>
                     } key={key} />)

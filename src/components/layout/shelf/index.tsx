@@ -12,28 +12,35 @@
  */
 import MuiDrawer from '@mui/material/Drawer'
 import List from '@mui/material/List'
-import VolumeUpIcon from '@mui/icons-material/VolumeUp'
 import LightbulbIcon from '@mui/icons-material/Lightbulb'
 import TextFieldsIcon from '@mui/icons-material/TextFields'
 import AnimationIcon from '@mui/icons-material/Animation'
-import FolderIcon from '@mui/icons-material/Folder'
+import FolderOpenIcon from '@mui/icons-material/FolderOpen'
+import AudiotrackIcon from '@mui/icons-material/Audiotrack'
+import SaveIcon from '@mui/icons-material/Save'
+import UndoIcon from '@mui/icons-material/Undo'
+
 import { ShelfItem } from './shelf-item'
-import { Divider, Typography } from '@mui/material'
 
 export function Shelf() {
 
     return (
         <MuiDrawer variant="permanent">
-            <ShelfItem>
-                <Typography />
-            </ShelfItem>
-            <Divider />
-            <List>
+            <List sx={{ height: '50vh' }}>
                 <ShelfItem>
-                    <FolderIcon />
+                    <FolderOpenIcon />
                 </ShelfItem>
                 <ShelfItem>
-                    <VolumeUpIcon />
+                    <UndoIcon />
+                </ShelfItem>
+                <ShelfItem>
+                    <SaveIcon />
+                </ShelfItem>
+            </List>
+
+            <List sx={{ height: '50vh' }}>
+                <ShelfItem>
+                    <AudiotrackIcon />
                 </ShelfItem>
                 <ShelfItem>
                     <LightbulbIcon />

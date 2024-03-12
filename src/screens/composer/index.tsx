@@ -10,16 +10,28 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-import { Grid } from '@mui/material'
+import { Divider, Grid } from '@mui/material'
+import { ReactNode } from 'react'
 
-const Composer = () => {
+const Composer = ({ children }: { children: ReactNode }) => {
 
     return (
 
-        <Grid container>
 
-            <Grid item>
-                Composer
+        <Grid
+            container
+            direction="column"
+            justifyContent="space-evenly"
+            height={'100vh'}>
+
+
+            <Grid item height={'50vh'}>
+                Top
+            </Grid>
+
+            <Grid item height={'50vh'}>
+                <Divider />
+                {children}
             </Grid>
 
         </Grid>

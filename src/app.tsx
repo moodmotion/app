@@ -22,21 +22,21 @@ import theme from '@styles'
 
 export const App = () => {
 
-    // we are using the isAuthenticated selector here
-    // so we re-render the whole app when authentication 
-    // state changes
+    // we are using the isAuthenticated and Language selectors 
+    // here so we re-render the whole app when authentication 
+    // or language selection state changes
     const auth = useSelector(isAuthenticated)
     const lang = useSelector(getLanguage)
 
     return (
         <IntlProvider
             locale={lang}
-            key={lang}
+            key={`${lang}${auth}`}
             messages={messages[lang]}>
             <ThemeProvider theme={theme}>
                 <CssBaseline>
                     <BrowserRouter>
-                        <Screens key={`${auth}`} />
+                        <Screens />
                     </BrowserRouter>
                 </CssBaseline>
             </ThemeProvider>

@@ -38,7 +38,7 @@ const Login = () => {
 
     useEffect(() => {
         if (authenticated) {
-            navigate(Screen.Composer)
+            navigate(Screen.Project)
         }
     }, [navigate])
 

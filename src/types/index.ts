@@ -24,7 +24,7 @@ export namespace MoodMotion {
      */
     export enum Screen {
         Login = '/login',
-        Composer = '/composer'
+        Project = '/project',
     }
 
     export type Credentials = {
