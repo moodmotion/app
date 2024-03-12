@@ -1,14 +1,13 @@
-# ride
-Bikeletics Ride App
+# MoodMotion
 
-To do:
+## Lights
 
-- setup tests
-  https://www.eternaldev.com/blog/testing-a-react-application-with-vitest/
-  https://testing-library.com/docs/react-testing-library/example-intro/
-- 
+* Philips Hue
+[https://developers.meethue.com/develop/hue-api-v2/core-concepts/](https://developers.meethue.com/develop/hue-api-v2/core-concepts/)
 
+* Govee
+[https://developer.govee.com/docs/getting-started](https://developer.govee.com/docs/getting-started)
 
-- redux thunk for api fetch (start api project)
-- add push notifications https://web.dev/articles/push-notifications-how-push-works
-- 
+## Audio
+
+https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API

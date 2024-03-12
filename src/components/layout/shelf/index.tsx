@@ -21,6 +21,7 @@ import SaveIcon from '@mui/icons-material/Save'
 import UndoIcon from '@mui/icons-material/Undo'
 
 import { ShelfItem } from './shelf-item'
+import { MoodMotion } from '@types'
 
 export function Shelf() {
 
@@ -39,16 +40,16 @@ export function Shelf() {
             </List>
 
             <List sx={{ height: '50vh' }}>
-                <ShelfItem>
+                <ShelfItem path={MoodMotion.Screen.Audio}>
                     <AudiotrackIcon />
                 </ShelfItem>
-                <ShelfItem>
+                <ShelfItem path={MoodMotion.Screen.Light}>
                     <LightbulbIcon />
                 </ShelfItem>
-                <ShelfItem>
+                <ShelfItem path={MoodMotion.Screen.Visual}>
                     <AnimationIcon />
                 </ShelfItem>
-                <ShelfItem>
+                <ShelfItem path={MoodMotion.Screen.Text}>
                     <TextFieldsIcon />
                 </ShelfItem>
             </List>

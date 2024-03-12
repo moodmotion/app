@@ -14,7 +14,7 @@ import { createTheme, ThemeOptions, responsiveFontSizes } from '@mui/material/st
 
 const options: ThemeOptions = {
     palette: {
-        mode: 'light'
+        mode: 'dark'
     }
 }
 

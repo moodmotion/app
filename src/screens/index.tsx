@@ -19,9 +19,14 @@ import { Shelf } from '@components/layout'
 import { RequireAuthentication } from '@components/auth'
 import Screen = MoodMotion.Screen
 
-const Login = lazy(() => import('./login'))
+const Audio = lazy(() => import('./audio'))
 const Composer = lazy(() => import('./composer'))
+const Light = lazy(() => import('./light'))
+
+const Login = lazy(() => import('./login'))
 const Project = lazy(() => import('./project'))
+const Text = lazy(() => import('./text'))
+const Visual = lazy(() => import('./visual'))
 
 
 const load = (component: ReactElement) => {
@@ -33,8 +38,11 @@ const publicScreens: { [index: string]: ReactElement } = {
 }
 
 const privateScreens: { [index: string]: ReactElement } = {
-    [Screen.Project]: load(<Project />)
-
+    [Screen.Audio]: load(<Audio />),
+    [Screen.Light]: load(<Light />),
+    [Screen.Project]: load(<Project />),
+    [Screen.Text]: load(<Text />),
+    [Screen.Visual]: load(<Visual />),
 }
 
 const Screens = () => {

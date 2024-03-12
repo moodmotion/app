@@ -1,13 +1,13 @@
 import { Grid } from "@mui/material"
 
 
-const Sound = () => {
+const Text = () => {
 
     return (
         <Grid container>
-            <Grid item sx={{ pl: 10 }}>Sound</Grid>
+            <Grid item sx={{ pl: 10 }}>Text</Grid>
         </Grid>
     )
 }
 
-export default Sound
+export default Text

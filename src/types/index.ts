@@ -25,6 +25,10 @@ export namespace MoodMotion {
     export enum Screen {
         Login = '/login',
         Project = '/project',
+        Audio = '/audio',
+        Light = '/light',
+        Text = '/text',
+        Visual = '/visual'
     }
 
     export type Credentials = {
