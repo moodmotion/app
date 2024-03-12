@@ -5,11 +5,7 @@ const Project = () => {
 
     return (
         <Grid container>
-            <Grid item sx={{ pl: 10 }}>
-
-                Select an option. Some cards here ..
-
-            </Grid>
+            <Grid item sx={{ pl: 10 }}>Project</Grid>
         </Grid>
     )
 }

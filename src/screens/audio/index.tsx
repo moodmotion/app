@@ -5,7 +5,12 @@ const Audio = () => {
 
     return (
         <Grid container>
-            <Grid item sx={{pl:10}}>Audio</Grid>
+            <Grid item sx={{ pl: 8 }}>
+
+
+
+
+            </Grid>
         </Grid>
     )
 }

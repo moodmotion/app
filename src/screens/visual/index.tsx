@@ -8,7 +8,7 @@ const Visual = () => {
     return (
         <Canvas gl={{ preserveDrawingBuffer: true }}
             shadows={true} dpr={[1, 1.5]}
-            camera={{ position: [0, 0, 150], fov: 50 }} >
+            camera={{ position: [0, 0, 175], fov: 55 }} >
             <ambientLight intensity={0.25} />
             <Suspense fallback={null}>
                 <Stage
@@ -16,11 +16,11 @@ const Visual = () => {
                     intensity={1}
                     shadows={true}
                     adjustCamera
-                    environment={'sunset'}>
+                    environment={'forest'}>
                     <Xbot />
                 </Stage>
             </Suspense>
-            <OrbitControls autoRotate={false} />
+            <OrbitControls />
         </Canvas>
     )
 }

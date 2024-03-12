@@ -28,18 +28,14 @@ export function Shelf() {
     return (
         <MuiDrawer variant="permanent">
             <List sx={{ height: '50vh' }}>
-                <ShelfItem>
-                    <FolderOpenIcon />
-                </ShelfItem>
-                <ShelfItem>
-                    <UndoIcon />
-                </ShelfItem>
-                <ShelfItem>
-                    <SaveIcon />
-                </ShelfItem>
+
+                
             </List>
 
             <List sx={{ height: '50vh' }}>
+                <ShelfItem path={MoodMotion.Screen.Project}>
+                    <FolderOpenIcon />
+                </ShelfItem>
                 <ShelfItem path={MoodMotion.Screen.Audio}>
                     <AudiotrackIcon />
                 </ShelfItem>
