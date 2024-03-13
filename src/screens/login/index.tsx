@@ -10,29 +10,28 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-import { useEffect, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { Grid, useTheme, Stack } from '@mui/material'
+import { Grid, Stack } from '@mui/material'
 
 import { login } from '@features'
 import { isAuthenticated } from '@state'
-import { MoodMotion } from '@types'
-import { Name } from '@components/branding'
+import { ProductName } from '@components/branding'
 import { Input, ActionButton } from '@components/input'
+import { MoodMotion } from '@types'
 import Screen = MoodMotion.Screen
 
 const Login = () => {
 
     const authenticated = useSelector(isAuthenticated)
     const navigate = useNavigate()
-    const theme = useTheme()
 
     const [credentials, setCredentials] = useState({
         email: '', password: ''
     })
 
-    const update = () => (event: React.ChangeEvent<HTMLInputElement>) => {
+    const update = () => (event: ChangeEvent<HTMLInputElement>) => {
         setCredentials({ ...credentials, [event.target.id]: event.target.value })
     }
 
@@ -50,7 +49,7 @@ const Login = () => {
                     justifyContent="center"
                     alignItems="center"
                     spacing={1}>
-                    <Name variant={'h3'} />
+                    <ProductName variant={'h3'} />
                     <Input id={'email'} required onChange={update()} />
                     <Input id={'password'} required onChange={update()} type={'password'} />
                     <ActionButton action={login(credentials)} />

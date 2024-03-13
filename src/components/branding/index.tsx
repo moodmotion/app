@@ -10,5 +10,5 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-export {Name} from './name'
-export {DotLabel} from './dot-label'
+export { ProductName } from './product-name'
+export { DotLabel } from './dot-label'

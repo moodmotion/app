@@ -3,21 +3,15 @@ import { Global } from '@emotion/react'
 import { styled } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 import { grey } from '@mui/material/colors'
-import Button from '@mui/material/Button'
-import Box from '@mui/material/Box'
 import Skeleton from '@mui/material/Skeleton'
 import Typography from '@mui/material/Typography'
 import SwipeableDrawer from '@mui/material/SwipeableDrawer'
+import { Grid } from '@mui/material'
+import Timeline from '@components/timeline'
+import Visual from '../visual'
+import Text from '../text'
 
 const drawerBleeding = 56
-
-interface Props {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
-    window?: () => Window;
-}
 
 const Root = styled('div')(({ theme }) => ({
     height: '100%',
@@ -39,16 +33,13 @@ const Puller = styled('div')(({ theme }) => ({
     left: 'calc(50% - 15px)',
 }));
 
-export default function SwipeableDrawer(props: Props) {
-    const { window } = props
-    const [open, setOpen] = React.useState(true)
+export default function MySwipeableDrawer() {
+
+    const [open, setOpen] = React.useState(false)
 
     const toggleDrawer = (newOpen: boolean) => () => {
         setOpen(newOpen)
     };
-
-    // This is used only for the example
-    const container = window !== undefined ? () => window().document.body : undefined
 
     return (
         <Root>
@@ -60,11 +51,36 @@ export default function SwipeableDrawer(props: Props) {
                         overflow: 'visible',
                     },
                 }} />
-            <Box sx={{ textAlign: 'center', pt: 1 }}>
-                <Button onClick={toggleDrawer(true)}>Open</Button>
-            </Box>
+
+            <Grid container height={'100vh'}>
+
+                <Grid item xs={8}>
+                    <Timeline />
+                </Grid>
+
+                <Grid item xs={4}>
+
+                    <Grid container height={'100vh'} direction={'column'}>
+
+                        <Grid item xs={8}>
+                            <Visual />
+                        </Grid>
+
+                        <Grid item xs={4}>
+
+                            <Grid container>
+                                <Grid item xs={1}></Grid>
+                                <Grid item xs={10}>
+                                    <Text />
+                                </Grid>
+                                <Grid item xs={1}></Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+
             <SwipeableDrawer
-                container={container}
                 anchor="bottom"
                 open={open}
                 onClose={toggleDrawer(false)}
@@ -85,7 +101,7 @@ export default function SwipeableDrawer(props: Props) {
                         left: 0,
                     }}>
                     <Puller />
-                    <Typography sx={{ p: 2, color: 'text.secondary' }}>51 results</Typography>
+                    <Typography sx={{ p: 2, color: 'text.secondary' }}>&nbsp;</Typography>
                 </StyledBox>
                 <StyledBox
                     sx={{
@@ -95,6 +111,7 @@ export default function SwipeableDrawer(props: Props) {
                         overflow: 'auto',
                     }}>
                     <Skeleton variant="rectangular" height="100%" />
+
                 </StyledBox>
             </SwipeableDrawer>
         </Root>

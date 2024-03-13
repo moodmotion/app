@@ -14,13 +14,13 @@ import { Typography, TypographyPropsVariantOverrides } from '@mui/material'
 import { OverridableStringUnion } from '@mui/types'
 import { Variant } from '@mui/material/styles/createTypography'
 
-type NameProps = {
+type ProductNameProps = {
     variant?: OverridableStringUnion<Variant | 'inherit', TypographyPropsVariantOverrides>
 }
 
-export const Name = ({ variant = 'h4' }: NameProps) => {
+export const ProductName = ({ variant = 'h4' }: ProductNameProps) => {
     return (
-        <Typography sx={{ flexGrow: 1 }} fontFamily={'Visby Heavy'} fontWeight={'bold'} variant={variant}>
+        <Typography sx={{ flexGrow: 1 }} variant={variant}>
             <span>MoodMotion.</span>
         </Typography>
     )

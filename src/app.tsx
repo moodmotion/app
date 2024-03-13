@@ -27,7 +27,7 @@ export const App = () => {
     // or language selection state changes
     const auth = useSelector(isAuthenticated)
     const lang = useSelector(getLanguage)
-
+    
     return (
         <IntlProvider
             locale={lang}

@@ -16,7 +16,6 @@ import ReactDOM from 'react-dom/client'
 
 import { App } from './app'
 import { store } from '@state'
-import '@assets/fonts/visby/styles.css'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 
 const root = ReactDOM.createRoot(

@@ -12,22 +12,13 @@
  */
 import { lazy, Suspense, ReactElement } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { Box } from '@mui/material'
 
 import { MoodMotion } from '@types'
-import { Shelf } from '@components/layout'
 import { RequireAuthentication } from '@components/auth'
 import Screen = MoodMotion.Screen
 
-const Audio = lazy(() => import('./audio'))
-const Composer = lazy(() => import('./composer'))
-const Light = lazy(() => import('./light'))
-
 const Login = lazy(() => import('./login'))
 const Project = lazy(() => import('./project'))
-const Text = lazy(() => import('./text'))
-const Visual = lazy(() => import('./visual'))
-
 
 const load = (component: ReactElement) => {
     return (<Suspense>{component}</Suspense>)
@@ -38,11 +29,7 @@ const publicScreens: { [index: string]: ReactElement } = {
 }
 
 const privateScreens: { [index: string]: ReactElement } = {
-    [Screen.Audio]: load(<Audio />),
-    [Screen.Light]: load(<Light />),
-    [Screen.Project]: load(<Project />),
-    [Screen.Text]: load(<Text />),
-    [Screen.Visual]: load(<Visual />),
+    [Screen.Project]: load(<Project />)
 }
 
 const Screens = () => {
@@ -65,13 +52,7 @@ const Screens = () => {
                 privateScreenKeys.map(key => (
                     <Route path={`${key}/*`} element={
                         <RequireAuthentication>
-                            <Box sx={{ display: 'flex' }}>
-                                <Shelf />
-                                <Composer>
-                                    {privateScreens[key]}
-                                </Composer>
-
-                            </Box>
+                            {privateScreens[key]}
                         </RequireAuthentication>
                     } key={key} />)
                 )
