@@ -10,8 +10,8 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-import { styled } from "@mui/material";
-import { grey } from "@mui/material/colors";
+import { styled } from '@mui/material'
+import { grey } from '@mui/material/colors'
 
 export const Root = styled('div')(({ theme }) => ({
     height: '100%',

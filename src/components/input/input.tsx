@@ -10,7 +10,7 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-import { TextField, TextFieldProps, useTheme } from '@mui/material'
+import { TextField, TextFieldProps } from '@mui/material'
 import { useIntl } from 'react-intl'
 
 export const Input = ({ id, onChange, ...props }: TextFieldProps) => {
@@ -23,7 +23,6 @@ export const Input = ({ id, onChange, ...props }: TextFieldProps) => {
             variant={'outlined'}
             onChange={onChange}
             label={intl.formatMessage({ id })}
-            {...props}
-        />
+            {...props} />
     )
 }

@@ -35,6 +35,9 @@
       "@features": [
         "./src/features"
       ],
+      "@language": [
+        "./src/language"
+      ],
       "@screens": [
         "./src/screens"
       ],

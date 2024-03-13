@@ -1,8 +1,20 @@
-import { Face, Folder } from "@mui/icons-material"
-import { Avatar, Chip, Paper, Stack, styled } from "@mui/material"
+/*
+ * Copyright (C) 2024 MoodMotion.io - All Rights Reserved
+ *
+ *   ----------------------------
+ *    Proprietary and confidential
+ *   ----------------------------
+ *
+ * This file is part of the MoodMotion application
+ *
+ * Unauthorized copying of this file, via any medium is 
+ * strictly prohibited.
+ */
+import { Face, Folder } from '@mui/icons-material'
+import { Avatar, Chip, Paper, Stack, styled } from '@mui/material'
 
 const ListItem = styled('li')(({ theme }) => ({
-    margin: theme.spacing(0.5),
+    margin: theme.spacing(0.5)
 }))
 
 const Text = () => {

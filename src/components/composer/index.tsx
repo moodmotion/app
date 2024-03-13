@@ -1,9 +1,20 @@
-import Text from "@components/text"
-import Timeline from "@components/timeline"
-import Visual from "@components/visual"
-import { Grid } from "@mui/material"
+/*
+ * Copyright (C) 2024 MoodMotion.io - All Rights Reserved
+ *
+ *   ----------------------------
+ *    Proprietary and confidential
+ *   ----------------------------
+ *
+ * This file is part of the MoodMotion application
+ *
+ * Unauthorized copying of this file, via any medium is 
+ * strictly prohibited.
+ */
+import { Grid } from '@mui/material'
 
-
+import Text from '@components/text'
+import Timeline from '@components/timeline'
+import Visual from '@components/visual'
 
 const Composer = () => {
 
@@ -36,7 +47,6 @@ const Composer = () => {
             </Grid>
         </Grid>
     )
-
 }
 
 export default Composer

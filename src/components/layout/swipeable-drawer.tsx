@@ -15,9 +15,7 @@ import { Global } from '@emotion/react'
 import { SwipeableDrawer, Typography } from '@mui/material'
 
 import Composer from '@components/composer'
-import { StyledBox } from './'
-import { Puller } from './'
-import { Root } from './'
+import { StyledBox, Puller, Root } from './'
 
 const drawerBleeding = 56
 

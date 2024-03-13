@@ -57,7 +57,6 @@ const Screens = () => {
                     } key={key} />)
                 )
             }
-
             {
                 getDefaultScreen()
             }

@@ -15,7 +15,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { IntlProvider } from 'react-intl'
 import { useSelector } from 'react-redux'
 
-import { messages } from './language'
+import { messages } from '@language'
 import { getLanguage, isAuthenticated } from '@state'
 import Screens from '@screens'
 import theme from '@styles'

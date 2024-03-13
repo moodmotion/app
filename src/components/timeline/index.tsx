@@ -1,10 +1,12 @@
-import { Divider, Grid } from "@mui/material"
+import { MoreVert } from "@mui/icons-material"
+import { Avatar, Card, CardContent, CardHeader, Grid, IconButton } from "@mui/material"
+import { red } from "@mui/material/colors"
 
 
 const Timeline = () => {
 
     return (
-        <Grid container sx={{ height: '50vh' }}>
+        <Grid container height={'100vh'}>
 
             <Grid item xs={12}>
 
@@ -13,6 +15,25 @@ const Timeline = () => {
 
             <Grid item xs={12}>
 
+                <Card variant={'outlined'}>
+
+                    <CardHeader
+                        avatar={
+                            <Avatar sx={{ bgcolor: red[500] }} aria-label="track">
+                                T
+                            </Avatar>
+                        }
+                        action={
+                            <IconButton aria-label="settings">
+                                <MoreVert />
+                            </IconButton>
+                        }
+                        title="Get Up Offa That Thing"
+                        subheader="James Brown"
+                    />
+
+
+                </Card>
 
             </Grid>
 

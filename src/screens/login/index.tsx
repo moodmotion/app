@@ -19,6 +19,7 @@ import { login } from '@features'
 import { isAuthenticated } from '@state'
 import { ProductName } from '@components/branding'
 import { Input, ActionButton } from '@components/input'
+
 import { MoodMotion } from '@types'
 import Screen = MoodMotion.Screen
 
@@ -52,7 +53,7 @@ const Login = () => {
                     <ProductName variant={'h3'} />
                     <Input id={'email'} required onChange={update()} />
                     <Input id={'password'} required onChange={update()} type={'password'} />
-                    <ActionButton action={login(credentials)} />
+                    <ActionButton id={'login'} action={login(credentials)} />
                 </Stack>
             </Grid>
         </Grid>
