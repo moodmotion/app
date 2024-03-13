@@ -10,4 +10,7 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-export {Shelf} from './shelf'
+export { Drawer } from './swipeable-drawer'
+export { StyledBox } from './styled-box'
+export { Puller } from './puller'
+export { Root } from './root'

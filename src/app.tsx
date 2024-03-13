@@ -22,12 +22,9 @@ import theme from '@styles'
 
 export const App = () => {
 
-    // we are using the isAuthenticated and Language selectors 
-    // here so we re-render the whole app when authentication 
-    // or language selection state changes
     const auth = useSelector(isAuthenticated)
     const lang = useSelector(getLanguage)
-    
+
     return (
         <IntlProvider
             locale={lang}

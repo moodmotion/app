@@ -86,7 +86,6 @@ export namespace MoodMotion {
         tokens: Tokens
     }
 
-
     /**
      * All data objects as found in our API
      * These are the definitions of the data we have 
