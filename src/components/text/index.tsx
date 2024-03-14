@@ -18,27 +18,15 @@ const Text = () => {
     return (
 
         <Grid container>
-            <Grid item xs={1}>&nbsp;</Grid>
-            <Grid item xs={10}>
-                <Paper
-                    elevation={4}
-                    sx={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        flexWrap: 'wrap',
-                        listStyle: 'none',
-                        p: 2,
-                        m: 2
-                    }}
-                    component="ul">
-                    <Stack spacing={1}>
-                        <Chip label="Powerful" color='error' onDelete={() => console.info('delete')} icon={<Bolt />} />
-                        <Chip label="3 Turns" color='info' variant="outlined" onDelete={() => console.info('delete')} icon={<Refresh />} />
-                        <Chip label="Left leg" color='info' variant="outlined" onDelete={() => console.info('delete')} icon={<ArrowLeft />} />
-                    </Stack>
-                </Paper>
+            <Grid item xs={5}>&nbsp;</Grid>
+            <Grid item xs={4}>
+                <Stack spacing={2}>
+                    <Chip label="Powerful" color='error' sx={{ width: 200 }} onDelete={() => console.info('delete')} icon={<Bolt />} />
+                    <Chip label="3 Turns" color='info' sx={{ width: 200 }} variant="outlined" onDelete={() => console.info('delete')} icon={<Refresh />} />
+                    <Chip label="Left leg" color='info' sx={{ width: 200 }} variant="outlined" onDelete={() => console.info('delete')} icon={<ArrowLeft />} />
+                </Stack>
             </Grid>
-            <Grid item xs={1}>&nbsp;</Grid>
+            <Grid item xs={3}>&nbsp;</Grid>
         </Grid>
 
     )

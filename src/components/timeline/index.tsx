@@ -38,8 +38,9 @@ const Timeline = () => {
             height={'100vh'}
             style={{ overflow: 'scroll' }}>
             <Grid item xs={12}>
-                <div style={{ position: 'absolute', left: '50%' }}>
-                    Test
+                <div style={{ position: 'absolute', left: '25%', textAlign: 'center' }}>
+                    <Typography variant='h3' sx={{ color: '#757575', mt: -3 }}>00:45:00,000</Typography>
+                    <Typography variant='h4' sx={{ color: '#757575' }}>Ride365</Typography>
                 </div>
             </Grid>
             <Grid item xs={12}>

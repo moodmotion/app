@@ -15,7 +15,8 @@ import { Global } from '@emotion/react'
 import { SwipeableDrawer, Typography } from '@mui/material'
 
 import Composer from '@components/composer'
-import { StyledBox, Puller, Root } from './'
+import { StyledBox, Puller, Root } from '.'
+import { DrawerContent } from './drawer-content'
 
 const drawerBleeding = 56
 
@@ -32,7 +33,7 @@ export function Drawer() {
             <Global
                 styles={{
                     '.MuiDrawer-root > .MuiPaper-root': {
-                        height: `calc(50% - ${drawerBleeding}px)`,
+                        height: `calc(70% - ${drawerBleeding}px)`,
                         overflow: 'visible'
                     }
                 }} />
@@ -70,7 +71,7 @@ export function Drawer() {
                         overflow: 'auto',
                     }}>
 
-                    {/** @todo add icons for music, light & motion */}
+                    <DrawerContent />
 
                 </StyledBox>
             </SwipeableDrawer>

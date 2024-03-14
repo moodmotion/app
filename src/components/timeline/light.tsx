@@ -26,7 +26,7 @@ export const Light = ({ color, label, duration }: LightProps) => {
             <CardHeader
                 
                 avatar={
-                    <Avatar sx={{ bgcolor: color, opacity: 0.5 }} aria-label="light">
+                    <Avatar sx={{ bgcolor: color }} aria-label="light">
                         <Lightbulb />
                     </Avatar>
                 }
