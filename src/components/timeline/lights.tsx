@@ -21,20 +21,14 @@ const Lights = ({ duration }: LightsProps) => {
     return (
         <div style={{ width: duration, paddingTop: 30, clear: 'left' }}>
             <Light color='blue' label='power' duration={196} />
-
-            <Light color='blue' label='relax' duration={50} />
-
-            <Light color='pink' label='relax' duration={50} />
-            <Light color='blue' label='relax' duration={50} />
-            <Light color='pink' label='relax' duration={50} />
-            <Light color='blue' label='relax' duration={50} />
-            <Light color='pink' label='relax' duration={50} />
+            <Light color='yellow' label='relax' duration={50} />
             <Light color='red' label='relax' duration={50} />
+            <Light color='blue' label='relax' duration={50} />
+            <Light color='green' label='relax' duration={50} />
+            <Light color='blue' label='relax' duration={50} />
+            <Light color='orange' label='relax' duration={50} />
+            <Light color='green' label='relax' duration={50} />
             <Light color='red' label='relax' duration={50} />
-
-
-
-
             <Light color='blue' label='focus' duration={200} />
         </div>
     )

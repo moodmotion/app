@@ -21,15 +21,15 @@ const Visual = () => {
         <Canvas
             shadows={true}
             dpr={[1, 1]}
-            camera={{ position: [0, 0, 150], fov: 50, zoom: 1.1 }} >
+            camera={{ position: [150, 0, 150], fov: 50, zoom: 1.1 }} >
             <ambientLight intensity={0.25} />
             <Suspense fallback={null}>
                 <Stage
-                    preset={'soft'}
+                    preset={'portrait'}
                     intensity={1}
                     shadows={true}
                     adjustCamera
-                    environment={'forest'}>
+                    environment={'city'}>
                     <Xbot />
                 </Stage>
             </Suspense>
