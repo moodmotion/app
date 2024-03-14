@@ -10,7 +10,6 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-import { MoreVert } from "@mui/icons-material"
 import { Avatar, Card, CardHeader, IconButton } from '@mui/material'
 import { Lightbulb } from '@mui/icons-material'
 
@@ -23,8 +22,9 @@ type LightProps = {
 export const Light = ({ color, label, duration }: LightProps) => {
 
     return (
-        <Card variant={'outlined'} sx={{ width: duration, float: 'left' }}>
+        <Card elevation={4} sx={{ width: duration, float: 'left' }}>
             <CardHeader
+                
                 avatar={
                     <Avatar sx={{ bgcolor: color, opacity: 0.5 }} aria-label="light">
                         <Lightbulb />
@@ -32,7 +32,7 @@ export const Light = ({ color, label, duration }: LightProps) => {
                 }
                 action={
                     <IconButton aria-label="settings">
-                        <MoreVert />
+                        {/** @todo add resizers */}
                     </IconButton>
                 }
                 title={label}

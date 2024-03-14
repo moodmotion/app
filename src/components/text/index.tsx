@@ -10,53 +10,38 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-import { Face, Folder } from '@mui/icons-material'
-import { Avatar, Chip, Paper, Stack, styled } from '@mui/material'
-
-const ListItem = styled('li')(({ theme }) => ({
-    margin: theme.spacing(0.5)
-}))
+import { Chip, Grid, Paper, Stack } from '@mui/material'
+import { Bolt, Refresh, ArrowLeft } from '@mui/icons-material'
 
 const Text = () => {
 
     return (
-        <>
-            <Paper
-                sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    flexWrap: 'wrap',
-                    listStyle: 'none',
-                    p: 0.5,
-                    m: 0,
-                }}
-                component="ul">
-                <ListItem>
-                    <Chip label="Chip Filled" onDelete={() => console.info('delete')} icon={<Face />} />
-                    <Chip label="Chip Outlined" variant="outlined" onDelete={() => console.info('delete')} icon={<Face />} />
-                </ListItem>
-            </Paper>
 
-            <br />
+        <Grid container>
+            <Grid item xs={1}>&nbsp;</Grid>
+            <Grid item xs={10}>
+                <Paper
+                    elevation={4}
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        flexWrap: 'wrap',
+                        listStyle: 'none',
+                        p: 2,
+                        m: 2
+                    }}
+                    component="ul">
+                    <Stack spacing={1}>
+                        <Chip label="Powerful" color='error' onDelete={() => console.info('delete')} icon={<Bolt />} />
+                        <Chip label="3 Turns" color='info' variant="outlined" onDelete={() => console.info('delete')} icon={<Refresh />} />
+                        <Chip label="Left leg" color='info' variant="outlined" onDelete={() => console.info('delete')} icon={<ArrowLeft />} />
+                    </Stack>
+                </Paper>
+            </Grid>
+            <Grid item xs={1}>&nbsp;</Grid>
+        </Grid>
 
-            <Stack
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-                spacing={2}>
-
-                <Avatar>
-                    <Folder />
-                </Avatar>
-
-                <Avatar variant="rounded">
-                    N
-                </Avatar>
-
-            </Stack>
-        </>
     )
-
 }
 
 export default Text

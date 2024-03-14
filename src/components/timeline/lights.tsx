@@ -19,9 +19,22 @@ type LightsProps = {
 const Lights = ({ duration }: LightsProps) => {
 
     return (
-        <div style={{ paddingLeft: 60, paddingTop: 30, width: duration, clear: 'left' }}>
-            <Light color='red' label='power' duration={300} />
-            <Light color='green' label='relax' duration={100} />
+        <div style={{ width: duration, paddingTop: 30, clear: 'left' }}>
+            <Light color='blue' label='power' duration={196} />
+
+            <Light color='blue' label='relax' duration={50} />
+
+            <Light color='pink' label='relax' duration={50} />
+            <Light color='blue' label='relax' duration={50} />
+            <Light color='pink' label='relax' duration={50} />
+            <Light color='blue' label='relax' duration={50} />
+            <Light color='pink' label='relax' duration={50} />
+            <Light color='red' label='relax' duration={50} />
+            <Light color='red' label='relax' duration={50} />
+
+
+
+
             <Light color='blue' label='focus' duration={200} />
         </div>
     )

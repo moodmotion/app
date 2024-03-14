@@ -153,7 +153,7 @@ const Time = ({ duration }: TimeProps) => {
 
 
     return (
-        <div style={{ paddingLeft: 60, paddingTop: 50, width: duration, clear: 'left' }}>
+        <div style={{ width: duration, clear: 'left' }}>
             <div style={{ height: 10, borderLeft: '2px solid #2f2f2f', float: 'left' }}></div>
             {ticks()}
         </div>

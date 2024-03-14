@@ -10,7 +10,7 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-import { Grid } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 
 import Text from '@components/text'
 import Timeline from '@components/timeline'
@@ -19,29 +19,20 @@ import Visual from '@components/visual'
 const Composer = () => {
 
     return (
-        <Grid container height={'100vh'}>
-
-            <Grid item xs={8}>
+        <Grid container columns={16}>
+            <Grid item xs={1}></Grid>
+            <Grid item xs={10}>
                 <Timeline />
             </Grid>
-
-            <Grid item xs={4}>
-
-                <Grid container height={'100vh'} direction={'column'}>
-
+            <Grid item xs={5}>
+                <Grid container
+                    height={'100vh'}
+                    direction={'column'}>
                     <Grid item xs={8}>
                         <Visual />
                     </Grid>
-
                     <Grid item xs={4}>
-
-                        <Grid container>
-                            <Grid item xs={1}></Grid>
-                            <Grid item xs={10}>
-                                <Text />
-                            </Grid>
-                            <Grid item xs={1}></Grid>
-                        </Grid>
+                        <Text />
                     </Grid>
                 </Grid>
             </Grid>

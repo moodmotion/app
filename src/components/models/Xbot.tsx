@@ -28,7 +28,7 @@ export function Xbot(props: JSX.IntrinsicElements['group']) {
   const { actions } = useAnimations(animations, group)
 
   useEffect(() => {
-    actions.agree?.play()
+    actions.walk?.play()
   }, [])
 
   return (

@@ -10,7 +10,9 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-import { Typography } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
+import { useMeasure } from 'react-use'
+
 import Lights from './lights'
 import Motions from './motions'
 import Tracks from './tracks'
@@ -18,24 +20,37 @@ import Time from './time'
 
 const Timeline = () => {
 
+    const [ref, { x, y, width, height, top, right, bottom, left }] = useMeasure();
+
     const handleScroll = event => {
         console.info('scroll left', event.target.scrollLeft)
         console.info('scroll left', event.target.scrollLeft)
     }
 
+    console.info(width)
+
     return (
-        <>
-            <div style={{ textAlign: 'center', paddingTop: 20, color: '#757575' }}>
-                <Typography variant='h4'>00:45:00,000</Typography>
-                <Typography variant='h5'>Ride365</Typography>
-            </div>
-            <div style={{ overflow: 'scroll', height: '100vh' }} onScroll={handleScroll}>
-                <Time duration={10000} />
-                <Lights duration={10000} />
-                <Motions duration={10000} />
-                <Tracks duration={10000} />
-            </div>
-        </>
+        <Grid
+            container
+            direction="row"
+            justifyContent="space-evenly"
+            alignItems="center"
+            height={'100vh'}
+            style={{ overflow: 'scroll' }}>
+            <Grid item xs={12}>
+                <div style={{ position: 'absolute', left: '50%' }}>
+                    Test
+                </div>
+            </Grid>
+            <Grid item xs={12}>
+                <Time duration={2700} />
+                <Lights duration={2700} />
+                <Motions duration={2700} />
+                <Tracks duration={2700} />
+            </Grid>
+            <Grid item xs={12}>&nbsp;</Grid>
+            <Grid item xs={12}>&nbsp;</Grid>
+        </Grid>
     )
 }
 

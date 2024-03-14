@@ -28,7 +28,7 @@ export function Drawer() {
     };
 
     return (
-        <Root>
+        <Root style={{ overflow: 'hidden' }}>
             <Global
                 styles={{
                     '.MuiDrawer-root > .MuiPaper-root': {

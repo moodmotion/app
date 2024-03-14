@@ -10,17 +10,17 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-import { MoreVert } from "@mui/icons-material"
 import { Avatar, Card, CardHeader, IconButton } from "@mui/material"
 
 type MotionProps = {
     name: string
+    duration: number
 }
 
-export const Motion = ({ name }: MotionProps) => {
+export const Motion = ({ name, duration }: MotionProps) => {
 
     return (
-        <Card variant={'outlined'} sx={{ maxWidth: 280, float: 'left' }}>
+        <Card elevation={4} sx={{ width: duration, float: 'left' }}>
             <CardHeader
                 avatar={
                     <Avatar aria-label="track">
@@ -29,7 +29,7 @@ export const Motion = ({ name }: MotionProps) => {
                 }
                 action={
                     <IconButton aria-label="settings">
-                        <MoreVert />
+                        {/** @todo add resizers */}
                     </IconButton>
                 }
                 title={name}

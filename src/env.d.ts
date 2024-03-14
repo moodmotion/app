@@ -14,3 +14,7 @@ interface Window {
     __WB_MANIFEST: any,
     skipWaiting: Function
 }
+
+declare module "*.png" {
+    export default value;
+}
