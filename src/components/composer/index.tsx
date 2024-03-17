@@ -10,11 +10,21 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-import { Grid, Typography } from '@mui/material'
+import { Grid, useTheme } from '@mui/material'
 
-import Text from '@components/text'
 import Timeline from '@components/timeline'
 import Visual from '@components/visual'
+import { Controls } from '@components/timeline/controls'
+
+
+const getBackground = () => {
+
+    const theme = useTheme()
+
+    return theme.palette.mode === 'dark' ?
+        theme.palette.background.default : theme.palette.grey[100]
+
+}
 
 const Composer = () => {
 
@@ -22,17 +32,21 @@ const Composer = () => {
         <Grid container columns={16}>
             <Grid item xs={1}></Grid>
             <Grid item xs={10}>
-                <Timeline />
+                <Grid container>
+                    <Grid item xs={12}>
+                        <Controls />
+                    </Grid>
+                    <Grid item xs={12} style={{ position: 'fixed', top: '15%' }}>
+                        <Timeline />
+                    </Grid>
+                </Grid>
             </Grid>
             <Grid item xs={5}>
                 <Grid container
                     height={'100vh'}
                     direction={'column'}>
-                    <Grid item xs={8}>
+                    <Grid item xs={8} sx={{ ml: 5, zIndex: 1, background: `linear-gradient(to right, transparent 5%, ${getBackground()} 40%)` }}>
                         <Visual />
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Text />
                     </Grid>
                 </Grid>
             </Grid>

@@ -25,14 +25,11 @@ const Motions = ({ duration }: MotionsProps) => {
             <Motion name='Stand' duration={230} />
             <Motion name='Seat' duration={128} />
             <Motion name='Sprint' duration={154} />
-
             <Motion name='Arms' duration={179} />
             <Motion name='Box' duration={156} />
             <Motion name='Stand' duration={187} />
             <Motion name='Elastic' duration={193} />
-            <Motion name='Mindfull' duration={235} />
-
-
+            <Motion name='Mindful' duration={235} />
         </div>
     )
 }

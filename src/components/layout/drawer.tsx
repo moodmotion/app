@@ -11,8 +11,7 @@
  * strictly prohibited.
  */
 import { useState } from 'react'
-import { Global } from '@emotion/react'
-import { SwipeableDrawer, Typography } from '@mui/material'
+import { GlobalStyles, SwipeableDrawer, Typography } from '@mui/material'
 
 import Composer from '@components/composer'
 import { StyledBox, Puller, Root } from '.'
@@ -30,7 +29,7 @@ export function Drawer() {
 
     return (
         <Root style={{ overflow: 'hidden' }}>
-            <Global
+            <GlobalStyles
                 styles={{
                     '.MuiDrawer-root > .MuiPaper-root': {
                         height: `calc(70% - ${drawerBleeding}px)`,

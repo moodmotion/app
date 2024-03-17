@@ -10,47 +10,40 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-import { Grid, Typography } from '@mui/material'
-import { useMeasure } from 'react-use'
+import { Grid } from '@mui/material'
 
 import Lights from './lights'
 import Motions from './motions'
 import Tracks from './tracks'
 import Time from './time'
+import { Tags } from './tags'
 
 const Timeline = () => {
-
-    const [ref, { x, y, width, height, top, right, bottom, left }] = useMeasure();
-
-    const handleScroll = event => {
-        console.info('scroll left', event.target.scrollLeft)
-        console.info('scroll left', event.target.scrollLeft)
-    }
-
-    console.info(width)
 
     return (
         <Grid
             container
             direction="row"
             justifyContent="space-evenly"
-            alignItems="center"
-            height={'100vh'}
-            style={{ overflow: 'scroll' }}>
+            style={{ overflow: 'scroll', scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
             <Grid item xs={12}>
-                <div style={{ position: 'absolute', left: '25%', textAlign: 'center' }}>
-                    <Typography variant='h3' sx={{ color: '#757575', mt: -3 }}>00:45:00,000</Typography>
-                    <Typography variant='h4' sx={{ color: '#757575' }}>Ride365</Typography>
-                </div>
+                &nbsp;
             </Grid>
             <Grid item xs={12}>
                 <Time duration={2700} />
+            </Grid>
+            <Grid item xs={12}>
                 <Lights duration={2700} />
-                <Motions duration={2700} />
+            </Grid>
+            <Grid item xs={12}>
                 <Tracks duration={2700} />
             </Grid>
-            <Grid item xs={12}>&nbsp;</Grid>
-            <Grid item xs={12}>&nbsp;</Grid>
+            <Grid item xs={12}>
+                <Motions duration={2700} />
+            </Grid>
+            <Grid item xs={12}>
+                <Tags duration={2700} />
+            </Grid>
         </Grid>
     )
 }

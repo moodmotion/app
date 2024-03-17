@@ -10,33 +10,20 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-import { Avatar, Card, CardHeader, IconButton } from '@mui/material'
-import { Lightbulb } from '@mui/icons-material'
+import { Card, CardContent, Divider } from '@mui/material'
 
 type LightProps = {
     color: string
-    label: string,
     duration: number
 }
 
-export const Light = ({ color, label, duration }: LightProps) => {
+export const Light = ({ color, duration }: LightProps) => {
 
     return (
         <Card elevation={4} sx={{ width: duration, float: 'left' }}>
-            <CardHeader
-                
-                avatar={
-                    <Avatar sx={{ bgcolor: color }} aria-label="light">
-                        <Lightbulb />
-                    </Avatar>
-                }
-                action={
-                    <IconButton aria-label="settings">
-                        {/** @todo add resizers */}
-                    </IconButton>
-                }
-                title={label}
-            />
+            <CardContent>
+                <Divider style={{ borderColor: color }} />
+            </CardContent>
         </Card>
     )
 }
