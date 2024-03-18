@@ -11,4 +11,3 @@
  * strictly prohibited.
  */
 export {RequireAuthentication} from './require-authentication'
-
