@@ -10,7 +10,7 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-import { MouseEventHandler } from 'react'
+import { DragEvent, MouseEventHandler, TouchEvent } from 'react'
 import { Avatar, ListItemAvatar, ListItemButton, ListItemText } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -25,7 +25,13 @@ type IndexItemProps = {
     avatar: string
     itemClick: MouseEventHandler<HTMLDivElement> | undefined
     draggable?: boolean
-    setPosition: Function
+    setPosition?: Function
+}
+
+type MuiTouchEvent = TouchEvent & {
+    nativeEvent: {
+        defaultMuiPrevented: boolean
+    }
 }
 
 export const IndexItem = ({ id, label, subHeader, index, avatar, itemClick, draggable = false, setPosition }: IndexItemProps) => {
@@ -33,9 +39,13 @@ export const IndexItem = ({ id, label, subHeader, index, avatar, itemClick, drag
     const isOpen = useSelector(layout.isDrawerOpen)
     const dispatch = useDispatch()
 
-    const startDragging = (e) => { }
+    const touchStart = (event: TouchEvent) => {
+        const e = event as MuiTouchEvent
+        // prevent the drawer from sliding when dragging 
+        e.nativeEvent.defaultMuiPrevented = true
+    }
 
-    const dragging = (e) => {
+    const touchDrag = (e: TouchEvent) => {
 
         // Close the drawer when open and we reach the edge
         if (isOpen && (window.innerHeight * 0.3) - e.touches[0].pageY > -56) {
@@ -44,7 +54,12 @@ export const IndexItem = ({ id, label, subHeader, index, avatar, itemClick, drag
 
         if (setPosition) {
             // update when we are within boundaries
-            if (window.innerWidth - (e.touches[0].pageX + 200) > 0) {
+            const leftOK = (window.innerWidth - (e.touches[0].pageX + 200)) > 0
+            const bottomOK = (window.innerHeight - (e.touches[0].pageY + 100)) > 0
+            const rightOK = e.touches[0].pageX > 50
+            const topOK = e.touches[0].pageY > 50
+
+            if (leftOK && rightOK && bottomOK && topOK) {
                 setPosition({
                     left: e.touches[0].pageX,
                     top: e.touches[0].pageY
@@ -53,7 +68,11 @@ export const IndexItem = ({ id, label, subHeader, index, avatar, itemClick, drag
         }
     }
 
-    const endDragging = (e) => {
+    const mouseDrag = (e: DragEvent<HTMLDivElement>) => {
+
+    }
+
+    const endDragging = () => {
         if (setPosition) {
             setPosition({ top: 0, left: 0 })
         }
@@ -65,10 +84,9 @@ export const IndexItem = ({ id, label, subHeader, index, avatar, itemClick, drag
             selected={index === id}
             onClick={itemClick}
             draggable={draggable}
-            onTouchStart={startDragging}
-            onDragStart={startDragging}
-            onDrag={dragging}
-            onTouchMove={dragging}
+            onDrag={mouseDrag}
+            onTouchStart={touchStart}
+            onTouchMove={touchDrag}
             onDragEnd={endDragging}
             onTouchEnd={endDragging}>
             <ListItemAvatar sx={{ pointerEvents: 'none' }}>

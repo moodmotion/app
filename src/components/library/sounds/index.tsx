@@ -18,7 +18,11 @@ import { useState } from 'react'
 import { IndexItem } from '@components/list/index-item'
 import { SubHeader } from '@components/list/sub-header'
 
-export const Tracks = ({ setPosition }) => {
+type TracksProps = {
+    setPosition: Function
+}
+
+export const Tracks = ({ setPosition }: TracksProps) => {
 
     const [index, setIndex] = useState(-1)
     const [trackIndex, setTrackIndex] = useState(-1)

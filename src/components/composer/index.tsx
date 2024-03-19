@@ -27,13 +27,14 @@ const Composer = () => {
 
     return (
         <Grid container columns={16}>
+            <Grid item xs={16}>&nbsp;</Grid>
             <Grid item xs={1}></Grid>
             <Grid item xs={10}>
                 <Grid container>
                     <Grid item xs={12}>
                         <Controls />
                     </Grid>
-                    <Grid item xs={12} style={{ position: 'fixed', top: '15%' }}>
+                    <Grid item xs={12} sx={{ position: 'fixed', pt: 15 }}>
                         <Timeline />
                     </Grid>
                 </Grid>
@@ -42,7 +43,7 @@ const Composer = () => {
                 <Grid container
                     height={'100vh'}
                     direction={'column'}>
-                    <Grid item xs={8} sx={{ ml: 5, zIndex: 1, background: `linear-gradient(to right, transparent 5%, ${getBackground()} 40%)` }}>
+                    <Grid item xs={9} sx={{ zIndex: 1, background: `linear-gradient(to right, transparent 1%, ${getBackground()} 40%)` }}>
                         <Visual />
                     </Grid>
                 </Grid>

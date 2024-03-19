@@ -46,6 +46,7 @@ export function Drawer() {
                 <Composer />
 
                 <SwipeableDrawer
+                    allowSwipeInChildren={false}
                     anchor="bottom"
                     open={isDrawerOpen}
                     onClose={() => dispatch(closeDrawer())}

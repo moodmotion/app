@@ -18,7 +18,11 @@ import { Tracks } from '@components/library/sounds'
 import { Motions } from '@components/library/motions'
 import { Lights } from '@components/library/lights'
 
-export const DrawerContent = ({ setPosition }) => {
+type DrawerContentProps = {
+    setPosition: Function
+}
+
+export const DrawerContent = ({ setPosition }: DrawerContentProps) => {
 
     const [index, setIndex] = useState(0)
 
