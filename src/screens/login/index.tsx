@@ -16,7 +16,7 @@ import { useSelector } from 'react-redux'
 import { Grid, Stack } from '@mui/material'
 
 import { login } from '@features'
-import { isAuthenticated } from '@state'
+import { auth } from '@state'
 import { ProductName } from '@components/branding'
 import { Input, ActionButton } from '@components/input'
 
@@ -25,7 +25,7 @@ import Screen = MoodMotion.Screen
 
 const Login = () => {
 
-    const authenticated = useSelector(isAuthenticated)
+    const authenticated = useSelector(auth.isAuthenticated)
     const navigate = useNavigate()
 
     const [credentials, setCredentials] = useState({

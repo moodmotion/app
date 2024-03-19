@@ -1,0 +1,208 @@
+<html>
+
+<Head>
+    <style>
+        div {
+            display: inline-block;
+            border: 1px solid #0b79d0;
+        }
+
+        div,
+        img {
+            width: 120px;
+            height: 120px;
+        }
+    </style>
+    <script>
+        var imgId = 'test'
+        var dropZoneId = ''
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function dragTouchstart(e) {
+            imgId = e.target
+            let image = document.createElement("img"); // Create a new element
+            image.setAttribute("id", "image-float");
+
+
+            // get the image from the stored reference
+            image.src = imgId.src
+            image.width = 100
+            image.height = 100
+
+            // position the image to the touch, can be improve to detect the position of touch inside the image
+            let left = e.touches[0].pageX;
+            let top = e.touches[0].pageY;
+            image.style.position = 'absolute'
+            image.style.left = left + 'px';
+            image.style.top = top + 'px';
+            image.style.opacity = 0.5;
+
+
+            document.body.appendChild(image);
+        }
+
+        function dragTouchmove(e) {
+            // on touch move or dragging, we get the newly created image element
+            let image = document.getElementById('image-float')
+            // this will give us the dragging feeling of the element while actually it's a different element
+            let left = e.touches[0].pageX;
+            let top = e.touches[0].pageY;
+            image.style.position = 'absolute'
+            image.style.left = left + 'px';
+            image.style.top = top + 'px';
+            let touchX = e.touches[0].pageX
+            let touchY = e.touches[0].pageY
+            //apply touch enter fucntion inside touch move
+            dragTouchenter(e, touchX, touchY)
+        }
+
+        function dragTouchenter(e, touchX, touchY) {
+            let one = document.getElementById('1')
+            let two = document.getElementById('2')
+            let three = document.getElementById('3')
+
+            let id1 = one.getBoundingClientRect();
+            let id2 = two.getBoundingClientRect();
+            let id3 = three.getBoundingClientRect();
+
+            // to detect the overlap of touchmove with dropzone
+            var overlap1 = !(id1.right < touchX ||
+                id1.left > touchX ||
+                id1.bottom < touchY ||
+                id1.top > touchY)
+
+            var overlap2 = !(id2.right < touchX ||
+                id2.left > touchX ||
+                id2.bottom < touchY ||
+                id2.top > touchY)
+
+            var overlap3 = !(id3.right < touchX ||
+                id3.left > touchX ||
+                id3.bottom < touchY ||
+                id3.top > touchY)
+
+            //detect touchenter then apply style, if false, equal to touchleave
+            //could write a better function to take these elements in array and apply function accordingly
+            //but as for now I just write like this because faster by copy+paste
+            //get dropZoneId too
+            if (overlap1) {
+                one.style.border = "dotted";
+                one.style.borderColor = "#0b79d0";
+                dropZoneId = one
+            } else {
+                one.style.border = "1px solid #0b79d0";
+            }
+
+            if (overlap2) {
+                two.style.border = "dotted";
+                two.style.borderColor = "#0b79d0";
+                dropZoneId = two
+            } else {
+                two.style.border = "1px solid #0b79d0";
+            }
+
+            if (overlap3) {
+                three.style.border = "dotted";
+                three.style.borderColor = "#0b79d0";
+                dropZoneId = three
+            } else {
+                three.style.border = "1px solid #0b79d0";
+            }
+
+            if (!overlap1 && !overlap2 && !overlap3) {
+                dropZoneId = ''
+            }
+
+            /* console.log(dropZoneId.id) */
+        }
+
+        function dragTouchend(e) {
+            //remove dragged image duplicate
+            let image = document.getElementById('image-float')
+            image.remove()
+
+            dropZoneId.style.border = "1px solid #0b79d0";
+            //if outside any dropzone, just do nothing
+            if (dropZoneId == '') {
+                dropZoneId = ''
+                imgId = ''
+            } else {
+                // if inside dropzone, swap the image 
+                let toSwap = dropZoneId.children[0]
+                let originDropzone = imgId.parentElement
+                originDropzone.appendChild(toSwap)
+                dropZoneId.appendChild(imgId)
+
+                dropZoneId = ''
+                imgId = ''
+
+            }
+        }
+
+        function dragEnter(ev) {
+            var element = document.getElementById(ev.target.id);
+            element.style.border = "dotted";
+            element.style.borderColor = "#0b79d0";
+        }
+
+        function dragLeave(ev) {
+            var element = document.getElementById(ev.target.id);
+            element.style.border = "1px solid #0b79d0";
+        }
+
+        function dragStart(ev) {
+            ev.dataTransfer.setData("src", ev.target.id);
+            var number = ev.target.id.replace(/[^\d.]/g, '');
+            ev.dataTransfer.setData("text/plain", number);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var src = document.getElementById(ev.dataTransfer.getData("src"));
+
+            var srcParent = src.parentNode;
+            var tgt = ev.currentTarget.firstElementChild;
+            ev.currentTarget.replaceChild(src, tgt);
+            srcParent.appendChild(tgt);
+
+            var number1 = srcParent.id.replace(/[^\d.]/g, '');
+            var number2 = ev.currentTarget.id.replace(/[^\d.]/g, '');
+
+            var element = document.getElementById(ev.target.id);
+            element.style.border = "solid 1px #0b79d0";
+
+            var number = ev.target.id.replace(/[^\d.]/g, '');
+        }
+    </script>
+
+</Head>
+
+<body>
+    <div id="1" ondragover="allowDrop(event)" ondrop="drop(event)" ondragenter="dragEnter(event)"
+        ondragleave="dragLeave(event)" draggable="false">
+        <img id="a" draggable="true" ondragstart="dragStart(event)"
+            src="https://static.webshopapp.com/shops/073933/files/156288269/345x345x1/artibalta-white-tiger.jpg"
+            ontouchstart="dragTouchstart(event)" ontouchmove="dragTouchmove(event)" ontouchend="dragTouchend(event)" />
+    </div>
+
+    <div id="2" ondragover="allowDrop(event)" ondrop="drop(event)" ondragenter="dragEnter(event)"
+        ondragleave="dragLeave(event)" draggable="false">
+        <img id="b" draggable="true" ondragstart="dragStart(event)"
+            src="https://yt3.ggpht.com/a-/AN66SAyfsmao4f1EEOqkBP2PgpSUcabPJXLZ1sLEnA=s288-mo-c-c0xffffffff-rj-k-no"
+            ontouchstart="dragTouchstart(event)" ontouchmove="dragTouchmove(event)" ontouchend="dragTouchend(event)" />
+    </div>
+
+    <div id="3" ondragover="allowDrop(event)" ondrop="drop(event)" ondragenter="dragEnter(event)"
+        ondragleave="dragLeave(event)" draggable="false">
+
+        <img id="c" draggable="true" ondragstart="dragStart(event)" src="https://cdn.quasar.dev/img/avatar1.jpg"
+            ontouchstart="dragTouchstart(event)" ontouchmove="dragTouchmove(event)" ontouchend="dragTouchend(event)" />
+    </div>
+
+
+</body>
+
+</html>

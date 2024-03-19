@@ -1,5 +1,12 @@
 # MoodMotion
 
+
+Issues
+
+- Prevent drag and drop to go off screen
+- 
+
+
 ## Lights
 
 * Philips Hue
@@ -14,8 +21,6 @@ https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API
 
 ## Features
 
-DragNDrop
-https://github.com/clauderic/dnd-kit
 
 * Markers
   * drop countdown

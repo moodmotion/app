@@ -12,7 +12,7 @@
  */
 import { configureStore } from '@reduxjs/toolkit'
 
-import { authReducer } from '@features'
+import { authReducer, dndReducer, layoutReducer } from '@features'
 import { MoodMotion } from '@types'
 import State = MoodMotion.State
 
@@ -21,17 +21,40 @@ import State = MoodMotion.State
  */
 export const store = configureStore({
     reducer: {
-        auth: authReducer
-    },
+        auth: authReducer,
+        dnd: dndReducer,
+        layout: layoutReducer
+    }
 })
 
 /**
- * User Selectors
+ * Auth Selectors
  */
-const getLanguage = (state: State) => state.auth.user.lang
-const isAuthenticated = (state: State) => state.auth.authenticated
-
-export {
-    getLanguage,
-    isAuthenticated
+export const auth = {
+    isAuthenticated: (state: State) => state.auth.authenticated
 }
+
+/**
+ * User Selectors
+ * @todo Auth & User are on the same slice, split?
+ */
+export const user = {
+    getLanguage: (state: State) => state.auth.user.lang,
+}
+
+/**
+ * Drag and Drop selectors
+ */
+export const dnd = {
+    getTransferData: (state: State) => state.dnd.id,
+    getTop: (state: State) => state.dnd.top,
+    getLeft: (state: State) => state.dnd.left
+}
+
+/**
+ * Layout selectors
+ */
+export const layout = {
+    isDrawerOpen: (state: State) => state.layout.isDrawerOpen
+}
+

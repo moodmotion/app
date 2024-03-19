@@ -14,6 +14,10 @@ import { styled } from '@mui/material'
 import { grey } from '@mui/material/colors'
 
 export const Root = styled('div')(({ theme }) => ({
-    height: '100%',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    position: 'fixed',
     backgroundColor: theme.palette.mode === 'light' ? grey[100] : theme.palette.background.default
 }))

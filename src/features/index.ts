@@ -11,3 +11,5 @@
  * strictly prohibited.
  */
 export { default as authReducer, login } from './auth/authSlice'
+export { default as dndReducer, setTransferData, move } from './dnd/dndSlice'
+export { default as layoutReducer, openDrawer, closeDrawer } from './layout/layoutSlice'

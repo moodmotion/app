@@ -18,10 +18,10 @@ type TrackProps = {
     duration: number
 }
 
-export const Track = ({ title, artist, duration }: TrackProps) => {
+export const Track = ({ title, artist, duration, ...props }: TrackProps) => {
 
     return (
-        <Card elevation={4} sx={{ width: duration, float: 'left' }}>
+        <Card elevation={4} sx={{ width: duration, float: 'left' }} {...props}>
             <CardHeader
                 avatar={
                     <Avatar aria-label="track">

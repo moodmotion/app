@@ -66,7 +66,7 @@ export namespace MoodMotion {
     }
 
     /**
-     * Describes the redux state of the userSlice
+     * Describes the redux state of the authSlice
      */
     export type AuthState = {
         authenticated: boolean
@@ -84,6 +84,16 @@ export namespace MoodMotion {
     export type LoginResponse = {
         user: User
         tokens: Tokens
+    }
+
+    export type DndState = {
+        id: string | undefined
+        top: number
+        left: number
+    }
+
+    export type LayoutState = {
+        isDrawerOpen: boolean
     }
 
     /**

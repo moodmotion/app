@@ -16,19 +16,19 @@ import { IntlProvider } from 'react-intl'
 import { useSelector } from 'react-redux'
 
 import { messages } from '@language'
-import { getLanguage, isAuthenticated } from '@state'
+import { user, auth } from '@state'
 import Screens from '@screens'
 import theme from '@styles'
 
 export const App = () => {
 
-    const auth = useSelector(isAuthenticated)
-    const lang = useSelector(getLanguage)
+    const authenticated = useSelector(auth.isAuthenticated)
+    const lang = useSelector(user.getLanguage)
 
     return (
         <IntlProvider
             locale={lang}
-            key={`${lang}${auth}`}
+            key={`${lang}${authenticated}`}
             messages={messages[lang]}>
             <ThemeProvider theme={theme}>
                 <CssBaseline>

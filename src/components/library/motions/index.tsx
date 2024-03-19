@@ -30,7 +30,6 @@ export const Motions = () => {
             sx={{
                 width: 300,
                 bgcolor: 'background.paper',
-                position: 'relative',
                 overflow: 'auto',
                 height: '50vh',
                 '& ul': { padding: 0 },
