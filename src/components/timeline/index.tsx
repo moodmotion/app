@@ -21,7 +21,7 @@ import { Tags } from './tags'
 import image1 from '@assets/images/covers/aintnootherman.png'
 import image2 from '@assets/images/covers/asking.png'
 import image3 from '@assets/images/covers/givemeonereason.png'
-import { TouchEvent, DragEvent, useEffect } from 'react'
+import { TouchEvent, DragEvent, useRef } from 'react'
 
 const Timeline = () => {
 
@@ -69,15 +69,7 @@ const Timeline = () => {
      */
 
     let moveObject: HTMLImageElement | undefined = undefined
-    let dropZone: HTMLElement | null = null
-
-    useEffect(() => {
-
-        // locate dropzone
-        /** @todo change to useRef */
-        dropZone = document.getElementById('track-dropzone')
-
-    }, [])
+    const dropZoneRef = useRef<HTMLDivElement | boolean>(!null)
 
     /**
     * =================================
@@ -164,23 +156,22 @@ const Timeline = () => {
      */
     const touchEnter = (touchX: number, touchY: number) => {
 
-        if (dropZone) {
 
-            // get dimensions of the dropzone
-            let dimensions = dropZone.getBoundingClientRect()
+        // get dimensions of the dropzone
+        let dimensions = dropZoneRef.current.getBoundingClientRect()
 
-            // to detect the overlap of touchmove with dropzone
-            const overlap = !(dimensions.right < touchX || dimensions.left > touchX || dimensions.bottom < touchY || dimensions.top > touchY)
+        // to detect the overlap of touchmove with dropzone
+        const overlap = !(dimensions.right < touchX || dimensions.left > touchX || dimensions.bottom < touchY || dimensions.top > touchY)
 
-            // When there is an overlap, in other words, the dragObject moves over the dropzone
-            // we apply style, if false this is equal to touchLeave and we reset the styles
-            if (overlap) {
-                dropZone.style.border = "dotted"
-                dropZone.style.borderColor = "#0b79d0"
-            } else {
-                dropZone.style.border = "1px solid #0b79d0"
-            }
+        // When there is an overlap, in other words, the dragObject moves over the dropzone
+        // we apply style, if false this is equal to touchLeave and we reset the styles
+        if (overlap) {
+            dropZoneRef.current.style.border = "dotted"
+            dropZoneRef.current.style.borderColor = "#0b79d0"
+        } else {
+            dropZoneRef.current.style.border = "1px solid #0b79d0"
         }
+
     }
 
     /**
@@ -194,18 +185,13 @@ const Timeline = () => {
         image?.remove()
 
         // outside any dropzone, clear the move object
-        if (!dropZone) {
+        /** @todo check overlap to determine if we need to drop or not */
+        // if inside dropzone, drop the dragObject 
+        /** @todo  add album/track to timeline in redux store */
+        dropZoneRef.current.style.border = "1px solid #0b79d0"
+        dropZoneRef.current.appendChild(moveObject)
+        moveObject = undefined
 
-            moveObject = undefined
-
-        } else if (dropZone && moveObject) {
-
-            // if inside dropzone, drop the dragObject 
-            /** @todo  add album/track to timeline in redux store */
-            dropZone.style.border = "1px solid #0b79d0"
-            dropZone.appendChild(moveObject)
-            moveObject = undefined
-        }
     }
 
     /**
@@ -228,10 +214,8 @@ const Timeline = () => {
      * style the border as user feedback
      */
     const dragEnter = () => {
-        if (dropZone) {
-            dropZone.style.border = "dotted"
-            dropZone.style.borderColor = "#0b79d0"
-        }
+        dropZoneRef.current.style.border = "dotted"
+        dropZoneRef.current.style.borderColor = "#0b79d0"
     }
 
     /**
@@ -241,9 +225,7 @@ const Timeline = () => {
      * back to normal
      */
     const dragLeave = () => {
-        if (dropZone) {
-            dropZone.style.border = "1px solid #0b79d0"
-        }
+        dropZoneRef.current.style.border = "1px solid #0b79d0"
     }
 
     /**
@@ -264,17 +246,15 @@ const Timeline = () => {
 
         /** @todo get data of dragged object and set/persist in store timeline & API */
         const dragObject = document.getElementById(event.dataTransfer.getData("id")) as HTMLImageElement
-
-        if (dropZone) {
-            dropZone.appendChild(dragObject)
-            dropZone.style.border = "solid 1px #0b79d0"
-        }
+        dropZoneRef.current.appendChild(dragObject)
+        dropZoneRef.current.style.border = "solid 1px #0b79d0"
     }
+
 
     return (
         <div>
             <div
-                id="track-dropzone"
+                ref={dropZoneRef}
                 onDragOver={dragOver}
                 onDrop={drop}
                 onDragEnter={dragEnter}
