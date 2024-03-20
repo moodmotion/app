@@ -48,7 +48,6 @@ const Tracks = ({ duration }: TracksProps) => {
         <div id="track-list" style={{ zIndex: 1000000, width: duration, paddingTop: 20, clear: 'left', border: '1px solid red', height: 100 }}
             onDragOver={dragOver}
             onDragEnter={dragEnter}
-            onDragTouchEnter={}
             draggable={false}>
             <Track title="Se Va" artist="Tom & Collins ft. Cumbiafrica" duration={196} cover={seva} style={{ pointerEvents: "none" }} />
             <Track title="Vai" artist="Tom & Collins" duration={208} cover={vai} />
