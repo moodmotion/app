@@ -19,13 +19,13 @@ export const Controls = () => {
         <Grid container>
             <Grid item xs={12}>&nbsp;</Grid>
             <Grid item xs={4} sx={{ textAlign: 'center' }}>
-                <IconButton>
+                <IconButton sx={{ zIndex: 1 }}>
                     <FastRewind style={{ fontSize: 30, color: '#757575' }} />
                 </IconButton>
-                <IconButton>
+                <IconButton sx={{ zIndex: 1 }}>
                     <FastForward style={{ fontSize: 30, color: '#757575' }} />
                 </IconButton>
-                <IconButton>
+                <IconButton sx={{ zIndex: 1 }}>
                     <PlayArrow style={{ fontSize: 30, color: '#757575' }} />
                 </IconButton>
             </Grid>

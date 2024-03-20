@@ -40,12 +40,17 @@ export const IndexItem = ({ id, label, subHeader, index, avatar, itemClick, drag
     const dispatch = useDispatch()
 
     const touchStart = (event: TouchEvent) => {
+
+        console.info('touch start')
+
         const e = event as MuiTouchEvent
         // prevent the drawer from sliding when dragging 
         e.nativeEvent.defaultMuiPrevented = true
     }
 
     const touchDrag = (e: TouchEvent) => {
+
+        console.info('touch drag')
 
         // Close the drawer when open and we reach the edge
         if (isOpen && (window.innerHeight * 0.3) - e.touches[0].pageY > -56) {
@@ -68,14 +73,23 @@ export const IndexItem = ({ id, label, subHeader, index, avatar, itemClick, drag
         }
     }
 
-    const mouseDrag = (e: DragEvent<HTMLDivElement>) => {
+    //    const mouseDrag = (e: DragEvent<HTMLDivElement>) => {
 
-    }
+    //      console.info('mouse drag')
+    //}
 
     const endDragging = () => {
+        console.info('end drag')
+
         if (setPosition) {
             setPosition({ top: 0, left: 0 })
         }
+    }
+
+    const startDragging = (e: DragEvent<HTMLDivElement>) => {
+
+        dispatch(closeDrawer())
+
     }
 
     return (
@@ -84,10 +98,12 @@ export const IndexItem = ({ id, label, subHeader, index, avatar, itemClick, drag
             selected={index === id}
             onClick={itemClick}
             draggable={draggable}
-            onDrag={mouseDrag}
             onTouchStart={touchStart}
+
             onTouchMove={touchDrag}
+
             onDragEnd={endDragging}
+            onDragStart={startDragging}
             onTouchEnd={endDragging}>
             <ListItemAvatar sx={{ pointerEvents: 'none' }}>
                 <Avatar alt={label} src={avatar} sx={{ pointerEvents: 'none' }} />

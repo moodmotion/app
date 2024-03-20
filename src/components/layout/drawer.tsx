@@ -31,7 +31,7 @@ export function Drawer() {
 
     return (
         <>
-            <Track title='Cool Track' duration={200} style={{ zIndex: 10000000, visibility: position.top !== 0 ? 'visible' : 'hidden', position: 'absolute', top: position.top, left: position.left }} />
+            <Track title='Cool Track' artist={'singer mcsingface'} duration={200} style={{ zIndex: 10000000, visibility: position.top !== 0 ? 'visible' : 'hidden', position: 'absolute', top: position.top, left: position.left }} />
             <Root style={{ overflow: 'hidden' }}>
 
 

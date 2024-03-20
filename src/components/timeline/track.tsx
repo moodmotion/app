@@ -10,23 +10,22 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-import { Avatar, Card, CardHeader, IconButton } from "@mui/material"
+import { Avatar, Card, CardHeader, CardProps, IconButton } from "@mui/material"
 
-type TrackProps = {
+type TrackProps = CardProps & {
     title: string
     artist: string
     duration: number
+    cover: string
 }
 
-export const Track = ({ title, artist, duration, ...props }: TrackProps) => {
+export const Track = ({ title, artist, duration, cover, ...props }: TrackProps) => {
 
     return (
         <Card elevation={4} sx={{ width: duration, float: 'left' }} {...props}>
             <CardHeader
                 avatar={
-                    <Avatar aria-label="track">
-                        {title.charAt(0)}
-                    </Avatar>
+                    <Avatar aria-label="track" src={cover} variant="square" sx={{ width: 48, height: 48, m: 0, p: 0 }} />
                 }
                 action={
                     <IconButton aria-label="settings">
@@ -35,10 +34,13 @@ export const Track = ({ title, artist, duration, ...props }: TrackProps) => {
                 }
                 title={
                     <span style={{ textOverflow: 'ellipsis', width: duration, overflow: 'hidden', whiteSpace: 'nowrap' }}>
-                        {title}
+                        <b>{title}</b>
                     </span>
                 }
-                subheader={duration}
+                subheader={
+                    <span style={{ textOverflow: 'ellipsis', width: duration, overflow: 'hidden', whiteSpace: 'nowrap' }}>
+                        {artist}
+                    </span>}
             />
         </Card>
     )

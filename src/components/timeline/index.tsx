@@ -30,7 +30,7 @@ const Timeline = () => {
                 &nbsp;
             </Grid>
             <Grid item xs={12}>
-                <Time duration={2700} />
+                <Time duration={3000} />
             </Grid>
             <Grid item xs={12}>
                 <Lights duration={2700} />

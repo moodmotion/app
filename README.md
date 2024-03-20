@@ -30,3 +30,23 @@ Design assets:
 
 * Icons
 * Avatars for Music, Motion & Lights
+* 
+
+
+
+
+## Music
+
+API's
+
+https://www.theaudiodb.com/
+https://developers.deezer.com/api
+https://developer.spotify.com/documentation/web-api
+https://developers.soundcloud.com/docs/api/explorer/open-api
+
+
+Platform
+
+https://www.collabhouse.com/
+
+
