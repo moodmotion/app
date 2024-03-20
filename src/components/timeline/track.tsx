@@ -16,7 +16,7 @@ type TrackProps = CardProps & {
     title: string
     artist: string
     duration: number
-    cover: string
+    cover?: string
 }
 
 export const Track = ({ title, artist, duration, cover, ...props }: TrackProps) => {
