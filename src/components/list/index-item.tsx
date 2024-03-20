@@ -86,10 +86,8 @@ export const IndexItem = ({ id, label, subHeader, index, avatar, itemClick, drag
         }
     }
 
-    const startDragging = (e: DragEvent<HTMLDivElement>) => {
-
+    const startDragging = () => {
         dispatch(closeDrawer())
-
     }
 
     return (
