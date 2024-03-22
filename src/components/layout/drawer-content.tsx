@@ -18,11 +18,7 @@ import { Tracks } from '@components/library/sounds'
 import { Motions } from '@components/library/motions'
 import { Lights } from '@components/library/lights'
 
-type DrawerContentProps = {
-    setPosition: Function
-}
-
-export const DrawerContent = ({ setPosition }: DrawerContentProps) => {
+export const DrawerContent = () => {
 
     const [index, setIndex] = useState(0)
 
@@ -46,7 +42,7 @@ export const DrawerContent = ({ setPosition }: DrawerContentProps) => {
                     <Motions />
                 </div>
                 <div hidden={index !== 2} style={{ height: '100%' }}>
-                    <Tracks setPosition={setPosition} />
+                    <Tracks />
                 </div>
             </Grid>
         </Grid>

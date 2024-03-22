@@ -17,7 +17,6 @@ import Visual from '@components/visual'
 import { Controls } from '@components/timeline/controls'
 
 const getBackground = () => {
-
     const theme = useTheme()
     return theme.palette.mode === 'dark' ?
         theme.palette.background.default : theme.palette.grey[100]

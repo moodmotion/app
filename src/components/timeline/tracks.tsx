@@ -25,6 +25,10 @@ import nobody from '@assets/images/covers/nobody.png'
 import gold from '@assets/images/covers/goldigger.png'
 import magalehna from '@assets/images/covers/magalenha.png'
 import give from '@assets/images/covers/givemeonereason.png'
+import { DragEvent, useEffect, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { dnd } from '@state'
+import { setDropZone } from '../../features/dnd/dndSlice'
 
 type TracksProps = {
     duration: number
@@ -32,23 +36,51 @@ type TracksProps = {
 
 const Tracks = ({ duration }: TracksProps) => {
 
-    const dragEnter = (e) => {
-        e.stopPropagation()
-        e.preventDefault()
-        console.info('drag enter')
+    const dispatch = useDispatch()
+    const isInDropZone = useSelector(dnd.isInDropZone)
+    const dropZoneRef = useRef<HTMLDivElement>(null)
+
+    const dragOver = (event: DragEvent) => {
+        event.preventDefault()
     }
 
-    const dragOver = (e) => {
-        e.stopPropagation()
-        e.preventDefault()
-        console.info('drag over')
+    const drop = (event: DragEvent) => {
+        event.preventDefault()
+
+        /** @todo get data of dragged object and set/persist in store timeline & API */
+        const dragObject = document.getElementById(event.dataTransfer.getData("id")) as HTMLImageElement
+        dropZoneRef.current!.appendChild(dragObject)
+        dropZoneRef.current!.style.border = "1px solid blue"
+
     }
+    const dragEnter = () => {
+        dropZoneRef.current!.style.border = "dotted"
+        dropZoneRef.current!.style.borderColor = "red"
+    }
+
+    const dragLeave = () => {
+        dropZoneRef.current!.style.border = "1px solid blue"
+    }
+
+    useEffect(() => {
+        let dimensions = dropZoneRef.current!.getBoundingClientRect()
+        dispatch(setDropZone({
+            left: dimensions.left,
+            right: dimensions.right,
+            top: dimensions.top,
+            bottom: dimensions.bottom
+        }))
+    }, [])
 
     return (
-        <div id="track-list" style={{ zIndex: 1000000, width: duration, paddingTop: 20, clear: 'left', border: '1px solid red', height: 100 }}
+        <div
+            ref={dropZoneRef}
+            draggable={false}
             onDragOver={dragOver}
+            onDrop={drop}
             onDragEnter={dragEnter}
-            draggable={false}>
+            onDragLeave={dragLeave}
+            style={{ width: duration, paddingTop: 20, border: isInDropZone ? '3px dotted green' : 'none', height: 125 }}>
             <Track title="Se Va" artist="Tom & Collins ft. Cumbiafrica" duration={196} cover={seva} style={{ pointerEvents: "none" }} />
             <Track title="Vai" artist="Tom & Collins" duration={208} cover={vai} />
             <Track title="Love You Like That" artist="Cloonee" duration={230} cover={love} />

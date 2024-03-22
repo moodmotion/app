@@ -15,17 +15,14 @@ import { Divider, Grid, List } from '@mui/material'
 import AfroHouse from '@assets/images/afro-house.png'
 import MelodicHouse from '@assets/images/melodic-house-techno.png'
 import { useState } from 'react'
-import { IndexItem } from '@components/list/index-item'
+import { Track } from '@components/list/track'
 import { SubHeader } from '@components/list/sub-header'
+import { Filter } from '@components/list/filter'
 
-type TracksProps = {
-    setPosition: Function
-}
+export const Tracks = () => {
 
-export const Tracks = ({ setPosition }: TracksProps) => {
-
-    const [index, setIndex] = useState(-1)
-    const [trackIndex, setTrackIndex] = useState(-1)
+    const [currentFilterIndex, setCurrentFilterIndex] = useState<string>('')
+    const [currentTrackIndex, setCurrentTrackIndex] = useState<string>('')
 
     return (
         <Grid
@@ -48,19 +45,52 @@ export const Tracks = ({ setPosition }: TracksProps) => {
                     <li key={`section-uptempo`}>
                         <ul>
                             <SubHeader label='Uptempo' />
-                            <IndexItem label='Melodic House' subHeader='Some other text' id={0} index={index} itemClick={() => setIndex(0)} avatar={MelodicHouse} />
+                            <Filter
+                                label='Melodic House'
+                                subHeader='Some other text'
+                                id={'65ef38ba5316b19ab4921c51'}
+                                index={currentFilterIndex}
+                                itemClick={() => setCurrentFilterIndex('65ef38ba5316b19ab4921c51')}
+                                avatar={MelodicHouse} />
                             <Divider />
-                            <IndexItem label='Dance' subHeader='Some other text' id={1} index={index} itemClick={() => setIndex(1)} avatar={AfroHouse} />
+
+                            <Filter
+                                label='Dance'
+                                subHeader='Some other text'
+                                id={'65ef38ba5316b19ab4921c52'}
+                                index={currentFilterIndex}
+                                itemClick={() => setCurrentFilterIndex('65ef38ba5316b19ab4921c52')}
+                                avatar={AfroHouse} />
                             <Divider />
-                            <IndexItem label='Hardstyle' subHeader='Some other text' id={2} index={index} itemClick={() => setIndex(2)} avatar={MelodicHouse} />
+
+                            <Filter
+                                label='Hardstyle'
+                                subHeader='Some other text'
+                                id={'65ef38ba5316b19ab4921c53'}
+                                index={currentFilterIndex}
+                                itemClick={() => setCurrentFilterIndex('65ef38ba5316b19ab4921c53')}
+                                avatar={MelodicHouse} />
                         </ul>
                     </li>
                     <li key={`section-focus`}>
                         <ul>
                             <SubHeader label='Focus' />
-                            <IndexItem label='Japanese Bells' subHeader='Some other text' id={3} index={index} itemClick={() => setIndex(3)} avatar={AfroHouse} />
+                            <Filter
+                                label='Japanese Bells'
+                                subHeader='Some other text'
+                                id={'65ef38ba5316b19ab4921c54'}
+                                index={currentFilterIndex}
+                                itemClick={() => setCurrentFilterIndex('65ef38ba5316b19ab4921c54')}
+                                avatar={AfroHouse} />
                             <Divider />
-                            <IndexItem label='Buddhist Wind' subHeader='Some other text' id={4} index={index} itemClick={() => setIndex(4)} avatar={MelodicHouse} />
+
+                            <Filter
+                                label='Buddhist Wind'
+                                subHeader='Some other text'
+                                id={'65ef38ba5316b19ab4921c55'}
+                                index={currentFilterIndex}
+                                itemClick={() => setCurrentFilterIndex('65ef38ba5316b19ab4921c55')}
+                                avatar={MelodicHouse} />
                         </ul>
                     </li>
                 </List>
@@ -74,15 +104,33 @@ export const Tracks = ({ setPosition }: TracksProps) => {
                         height: '50vh',
                         '& ul': { padding: 0 },
                     }}>
-                    <IndexItem setPosition={setPosition} draggable={true} label='Cool track number 1' subHeader='Some other text' id={0} index={trackIndex} itemClick={() => setTrackIndex(0)} avatar={MelodicHouse} />
+                    <Track
+                        label='Cool track number 1'
+                        subHeader='Some other text'
+                        id={'65ef38ba5316b19ab4921c56'}
+                        index={currentTrackIndex}
+                        itemClick={() => setCurrentTrackIndex('65ef38ba5316b19ab4921c56')}
+                        avatar={MelodicHouse} />
                     <Divider />
-                    <IndexItem setPosition={setPosition} draggable={true} label='Dope music' subHeader='Some other text' id={1} index={trackIndex} itemClick={() => setTrackIndex(1)} avatar={AfroHouse} />
+
+                    <Track
+                        label='Dope music'
+                        subHeader='Some other text'
+                        id={'65ef38ba5316b19ab4921c57'}
+                        index={currentTrackIndex}
+                        itemClick={() => setCurrentTrackIndex('65ef38ba5316b19ab4921c57')}
+                        avatar={AfroHouse} />
                     <Divider />
-                    <IndexItem setPosition={setPosition} draggable={true} label='Baddabing' subHeader='Some other text' id={2} index={trackIndex} itemClick={() => setTrackIndex(2)} avatar={MelodicHouse} />
+
+                    <Track
+                        label='Baddabing'
+                        subHeader='Some other text'
+                        id={'65ef38ba5316b19ab4921c58'}
+                        index={currentTrackIndex}
+                        itemClick={() => setCurrentTrackIndex('65ef38ba5316b19ab4921c58')}
+                        avatar={MelodicHouse} />
                 </List>
             </Grid>
-
-
         </Grid>
     )
 }

@@ -87,9 +87,16 @@ export namespace MoodMotion {
     }
 
     export type DndState = {
-        id: string | undefined
-        top: number
+        transferData: string | undefined
+        dropZone: BoundingBox | undefined
+        isInDropZone: boolean
+    }
+
+    export type BoundingBox = {
         left: number
+        right: number
+        top: number
+        bottom: number
     }
 
     export type LayoutState = {

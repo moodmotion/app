@@ -15,9 +15,9 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { MoodMotion } from '@types'
 
 const initialState: MoodMotion.DndState = {
-    id: undefined,
-    top: 0,
-    left: 0
+    transferData: undefined,
+    dropZone: undefined,
+    isInDropZone: false
 }
 
 export const dndSlice = createSlice({
@@ -25,15 +25,21 @@ export const dndSlice = createSlice({
     initialState,
     reducers: {
         setTransferData: (state, action: PayloadAction<string>) => {
-            state.id = action.payload
+            state.transferData = action.payload
         },
-        move: (state, action: PayloadAction<{ top: number, left: number }>) => {
-            state.top = action.payload.top
-            state.left = action.payload.left
+        setDropZone: (state, action: PayloadAction<MoodMotion.BoundingBox>) => {
+            state.dropZone = action.payload
+        },
+        inDropZone: (state, action: PayloadAction<boolean>) => {
+            state.isInDropZone = action.payload
+        },
+        reset: (state) => {
+            state.transferData = undefined
+            state.isInDropZone = false
         }
     }
 })
 
-export const { setTransferData, move } = dndSlice.actions
+export const { setTransferData, setDropZone, inDropZone, reset } = dndSlice.actions
 
 export default dndSlice.reducer

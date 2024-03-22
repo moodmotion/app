@@ -39,16 +39,17 @@ export const auth = {
  * @todo Auth & User are on the same slice, split?
  */
 export const user = {
-    getLanguage: (state: State) => state.auth.user.lang,
+    getLanguage: (state: State) => state.auth.user.lang
 }
 
 /**
  * Drag and Drop selectors
  */
 export const dnd = {
-    getTransferData: (state: State) => state.dnd.id,
-    getTop: (state: State) => state.dnd.top,
-    getLeft: (state: State) => state.dnd.left
+    getTransferData: (state: State) => state.dnd.transferData,
+    getDropZone: (state: State) => state.dnd.dropZone,
+    isInDropZone: (state: State) => state.dnd.isInDropZone,
+
 }
 
 /**

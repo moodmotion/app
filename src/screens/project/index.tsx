@@ -10,7 +10,7 @@
  * Unauthorized copying of this file, via any medium is 
  * strictly prohibited.
  */
-import { Drawer } from "@components/layout"
+import { Drawer } from '@components/layout'
 
 const Project = () => {
 
