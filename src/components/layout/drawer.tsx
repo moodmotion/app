@@ -13,69 +13,85 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { GlobalStyles, SwipeableDrawer, Typography } from '@mui/material'
 
-
 import Composer from '@components/composer'
 import { StyledBox, Puller, Root } from '.'
 import { DrawerContent } from './drawer-content'
 import { layout } from '@state'
 import { closeDrawer, openDrawer } from '@features'
+import { Track } from '@components/timeline/track'
+
+import imageCover from '@assets/images/covers/aintnootherman.png'
+import { useState } from 'react'
+import { MoodMotion } from '@types'
 
 const drawerBleeding = 56
 
 export function Drawer() {
 
+    const [location, setLocation] = useState<MoodMotion.DnDCoordinates>({ top: 0, left: 0 })
+    
     const dispatch = useDispatch()
     const isDrawerOpen = useSelector(layout.isDrawerOpen)
 
     return (
-        <Root style={{ overflow: 'hidden' }}>
+        <>
+            <Track
+                title='some title'
+                artist='some artist'
+                duration={200}
+                cover={imageCover}
+                style={{ zIndex: 100000000, visibility: location.top === 0 ? 'hidden' : 'visible', position: 'absolute', top: location.top, left: location.left }} />
 
-            <GlobalStyles
-                styles={{
-                    '.MuiDrawer-root > .MuiPaper-root': {
-                        height: `calc(70% - ${drawerBleeding}px)`,
-                        overflow: 'visible'
-                    }
-                }} />
+            <Root style={{ overflow: 'hidden' }}>
 
-            <Composer />
 
-            <SwipeableDrawer
-                allowSwipeInChildren={false}
-                anchor="bottom"
-                open={isDrawerOpen}
-                onClose={() => dispatch(closeDrawer())}
-                onOpen={() => dispatch(openDrawer())}
-                swipeAreaWidth={drawerBleeding}
-                disableSwipeToOpen={false}
-                ModalProps={{
-                    keepMounted: true
-                }}>
-                <StyledBox
-                    sx={{
-                        position: 'absolute',
-                        top: -drawerBleeding,
-                        borderTopLeftRadius: 8,
-                        borderTopRightRadius: 8,
-                        visibility: 'visible',
-                        right: 0,
-                        left: 0
+                <GlobalStyles
+                    styles={{
+                        '.MuiDrawer-root > .MuiPaper-root': {
+                            height: `calc(70% - ${drawerBleeding}px)`,
+                            overflow: 'visible'
+                        }
+                    }} />
+
+                <Composer />
+
+                <SwipeableDrawer
+                    allowSwipeInChildren={false}
+                    anchor="bottom"
+                    open={isDrawerOpen}
+                    onClose={() => dispatch(closeDrawer())}
+                    onOpen={() => dispatch(openDrawer())}
+                    swipeAreaWidth={drawerBleeding}
+                    disableSwipeToOpen={false}
+                    ModalProps={{
+                        keepMounted: true
                     }}>
-                    <Puller />
-                    <Typography sx={{ p: 2, color: 'text.secondary' }}>&nbsp;</Typography>
-                </StyledBox>
-                <StyledBox
-                    sx={{
-                        px: 2,
-                        pb: 2,
-                        height: '100%',
-                        overflow: 'auto',
-                    }}>
+                    <StyledBox
+                        sx={{
+                            position: 'absolute',
+                            top: -drawerBleeding,
+                            borderTopLeftRadius: 8,
+                            borderTopRightRadius: 8,
+                            visibility: 'visible',
+                            right: 0,
+                            left: 0
+                        }}>
+                        <Puller />
+                        <Typography sx={{ p: 2, color: 'text.secondary' }}>&nbsp;</Typography>
+                    </StyledBox>
+                    <StyledBox
+                        sx={{
+                            px: 2,
+                            pb: 2,
+                            height: '100%',
+                            overflow: 'auto',
+                        }}>
 
-                    <DrawerContent />
+                        <DrawerContent setLocation={setLocation} />
 
-                </StyledBox>
-            </SwipeableDrawer>
-        </Root>
+                    </StyledBox>
+                </SwipeableDrawer>
+            </Root>
+        </>
     )
 }

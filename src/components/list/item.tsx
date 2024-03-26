@@ -18,6 +18,7 @@ import { closeDrawer, inDropZone, reset, setTransferData } from '@features'
 import { dnd, layout } from '@state'
 
 type IndexItemProps = {
+    setLocation: Function
     id: string
     index: string
     label: string
@@ -34,7 +35,7 @@ type MuiTouchEvent = TouchEvent & DragEvent & {
     }
 }
 
-export const Track = ({ id, index, label, subHeader, avatar, itemClick }: IndexItemProps) => {
+export const Item = ({ setLocation, id, index, label, subHeader, avatar, itemClick }: IndexItemProps) => {
 
     const dropZone = useSelector(dnd.getDropZone)
     const isInDropZone = useSelector(dnd.isInDropZone)
@@ -65,6 +66,8 @@ export const Track = ({ id, index, label, subHeader, avatar, itemClick }: IndexI
         let left = event.touches[0].pageX
         let top = event.touches[0].pageY
 
+        setLocation({ top, left })
+
         if (dropZone) {
             const overlap = !(dropZone.right < left || dropZone.left > left || dropZone.bottom < top || dropZone.top > top)
             if (overlap) {
@@ -84,7 +87,9 @@ export const Track = ({ id, index, label, subHeader, avatar, itemClick }: IndexI
         } else {
             console.info('no drop')
         }
-        // reset dropzone state & transferData
+
+        // reset dragging
+        setLocation({ top: 0, left: 0 })
         dispatch(reset())
     }
 

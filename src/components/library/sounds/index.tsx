@@ -15,11 +15,15 @@ import { Divider, Grid, List } from '@mui/material'
 import AfroHouse from '@assets/images/afro-house.png'
 import MelodicHouse from '@assets/images/melodic-house-techno.png'
 import { useState } from 'react'
-import { Track } from '@components/list/track'
+import { Item } from '@components/list/item'
 import { SubHeader } from '@components/list/sub-header'
 import { Filter } from '@components/list/filter'
 
-export const Tracks = () => {
+type TracksProps = {
+    setLocation: Function
+}
+
+export const Tracks = ({ setLocation }: TracksProps) => {
 
     const [currentFilterIndex, setCurrentFilterIndex] = useState<string>('')
     const [currentTrackIndex, setCurrentTrackIndex] = useState<string>('')
@@ -104,7 +108,8 @@ export const Tracks = () => {
                         height: '50vh',
                         '& ul': { padding: 0 },
                     }}>
-                    <Track
+                    <Item
+                        setLocation={setLocation}
                         label='Cool track number 1'
                         subHeader='Some other text'
                         id={'65ef38ba5316b19ab4921c56'}
@@ -113,7 +118,8 @@ export const Tracks = () => {
                         avatar={MelodicHouse} />
                     <Divider />
 
-                    <Track
+                    <Item
+                        setLocation={setLocation}
                         label='Dope music'
                         subHeader='Some other text'
                         id={'65ef38ba5316b19ab4921c57'}
@@ -122,7 +128,8 @@ export const Tracks = () => {
                         avatar={AfroHouse} />
                     <Divider />
 
-                    <Track
+                    <Item
+                        setLocation={setLocation}
                         label='Baddabing'
                         subHeader='Some other text'
                         id={'65ef38ba5316b19ab4921c58'}

@@ -31,6 +31,11 @@ export namespace MoodMotion {
         Visual = '/visual'
     }
 
+    export type DnDCoordinates = {
+        top: number
+        left: number
+    }
+
     export type Credentials = {
         email: string,
         password: string
