@@ -18,6 +18,14 @@ import { store } from "@state"
 export namespace MoodMotion {
 
     /**
+     * Service Worker typing
+     */
+    export type ServiceWorkerConfig = {
+        onUpdate?: Function
+        onSuccess?: Function
+    }
+
+    /**
      * The main navigation entries.
      * Any navigation within these screens is done with 
      * sub paths within the screen / feature 
