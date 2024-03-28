@@ -20,10 +20,10 @@ import { SubHeader } from '@components/list/sub-header'
 import { Filter } from '@components/list/filter'
 
 type TracksProps = {
-    setLocation: Function
+    move: Function
 }
 
-export const Tracks = ({ setLocation }: TracksProps) => {
+export const Tracks = ({ move }: TracksProps) => {
 
     const [currentFilterIndex, setCurrentFilterIndex] = useState<string>('')
     const [currentTrackIndex, setCurrentTrackIndex] = useState<string>('')
@@ -109,7 +109,7 @@ export const Tracks = ({ setLocation }: TracksProps) => {
                         '& ul': { padding: 0 },
                     }}>
                     <Item
-                        setLocation={setLocation}
+                        move={move}
                         label='Cool track number 1'
                         subHeader='Some other text'
                         id={'65ef38ba5316b19ab4921c56'}
@@ -119,7 +119,7 @@ export const Tracks = ({ setLocation }: TracksProps) => {
                     <Divider />
 
                     <Item
-                        setLocation={setLocation}
+                        move={move}
                         label='Dope music'
                         subHeader='Some other text'
                         id={'65ef38ba5316b19ab4921c57'}
@@ -129,7 +129,7 @@ export const Tracks = ({ setLocation }: TracksProps) => {
                     <Divider />
 
                     <Item
-                        setLocation={setLocation}
+                        move={move}
                         label='Baddabing'
                         subHeader='Some other text'
                         id={'65ef38ba5316b19ab4921c58'}

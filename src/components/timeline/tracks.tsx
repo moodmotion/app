@@ -81,7 +81,7 @@ const Tracks = ({ duration }: TracksProps) => {
             onDragEnter={dragEnter}
             onDragLeave={dragLeave}
             style={{ width: duration, paddingTop: 20, border: isInDropZone ? '3px dotted green' : 'none', height: 125 }}>
-            <Track title="Se Va" artist="Tom & Collins ft. Cumbiafrica" duration={196} cover={seva} style={{ pointerEvents: "none" }} />
+            <Track title="Se Va" artist="Tom & Collins ft. Cumbiafrica" duration={196} cover={seva} />
             <Track title="Vai" artist="Tom & Collins" duration={208} cover={vai} />
             <Track title="Love You Like That" artist="Cloonee" duration={230} cover={love} />
             <Track title="Stan" artist="TWENTY SIX" duration={128} cover={stan} />

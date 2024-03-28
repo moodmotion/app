@@ -1,0 +1,102 @@
+{
+    "library": {
+        "lights": {},
+        "motions": {},
+        "tracks": [
+            {
+                "id": "65ef38ba5316b19ab4921c56",
+                "title": "Se Va",
+                "artist": "Tom & Collins ft. Cumbiafrica",
+                "duration": 196,
+                "cover": "/covers/se-va.png"
+            },
+            {
+                "id": "65ef38ba5316b19ab4921c57",
+                "title": "Vai",
+                "artist": "Tom & Collins",
+                "duration": 208,
+                "cover": "/covers/vai.png"
+            },
+            {
+                "id": "65ef38ba5316b19ab4921c58",
+                "title": "Love You Like That",
+                "artist": "Cloonee",
+                "duration": 230,
+                "cover": "/covers/loveyoulikethat.png"
+            },
+            {
+                "id": "65ef38ba5316b19ab4921c59",
+                "title": "Stan",
+                "artist": "TWENTY SIX",
+                "duration": 128,
+                "cover": "/covers/stan.png"
+            },
+            {
+                "id": "65ef38ba5316b19ab4921c60",
+                "title": "Ain't no other man",
+                "artist": "Murphy's Law",
+                "duration": 154,
+                "cover": "/covers/aintnootherman.png"
+            },
+            {
+                "id": "65ef38ba5316b19ab4921c61",
+                "title": "Sex Machine",
+                "artist": "Block & Crown",
+                "duration": 179,
+                "cover": "/covers/"
+            },
+            {
+                "id": "65ef38ba5316b19ab4921c62",
+                "title": "",
+                "artist": "",
+                "duration": 0,
+                "cover": "/covers/"
+            },
+            {
+                "id": "65ef38ba5316b19ab4921c63",
+                "title": "",
+                "artist": "",
+                "duration": 0,
+                "cover": "/covers/"
+            },
+            {
+                "id": "65ef38ba5316b19ab4921c64",
+                "title": "",
+                "artist": "",
+                "duration": 0,
+                "cover": "/covers/"
+            },
+            {
+                "id": "65ef38ba5316b19ab4921c65",
+                "title": "",
+                "artist": "",
+                "duration": 0,
+                "cover": "/covers/"
+            },
+            {
+                "id": "65ef38ba5316b19ab4921c66",
+                "title": "",
+                "artist": "",
+                "duration": 0,
+                "cover": "/covers/"
+            },
+            {
+                "id": "65ef38ba5316b19ab4921c67",
+                "title": "",
+                "artist": "",
+                "duration": 0,
+                "cover": "/covers/"
+            },
+            {
+                "id": "65ef38ba5316b19ab4921c68",
+                "title": "",
+                "artist": "",
+                "duration": 0,
+                "cover": "/covers/"
+            }
+        ]
+    },
+    "moodMotions": [
+        {}
+    ]
+}

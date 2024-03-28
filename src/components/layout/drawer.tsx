@@ -21,15 +21,13 @@ import { closeDrawer, openDrawer } from '@features'
 import { Track } from '@components/timeline/track'
 
 import imageCover from '@assets/images/covers/aintnootherman.png'
-import { useState } from 'react'
-import { MoodMotion } from '@types'
+import { useDnd } from '../../hooks/use-dnd'
 
 const drawerBleeding = 56
 
-export function Drawer() {
+export const Drawer = () => {
 
-    const [location, setLocation] = useState<MoodMotion.DnDCoordinates>({ top: 0, left: 0 })
-    
+    const { location, move } = useDnd()
     const dispatch = useDispatch()
     const isDrawerOpen = useSelector(layout.isDrawerOpen)
 
@@ -43,7 +41,6 @@ export function Drawer() {
                 style={{ zIndex: 100000000, visibility: location.top === 0 ? 'hidden' : 'visible', position: 'absolute', top: location.top, left: location.left }} />
 
             <Root style={{ overflow: 'hidden' }}>
-
 
                 <GlobalStyles
                     styles={{
@@ -87,7 +84,7 @@ export function Drawer() {
                             overflow: 'auto',
                         }}>
 
-                        <DrawerContent setLocation={setLocation} />
+                        <DrawerContent move={move} />
 
                     </StyledBox>
                 </SwipeableDrawer>

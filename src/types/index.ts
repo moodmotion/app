@@ -39,7 +39,8 @@ export namespace MoodMotion {
         Visual = '/visual'
     }
 
-    export type DnDCoordinates = {
+    export type DnDTrack = {
+        id: string | undefined
         top: number
         left: number
     }
