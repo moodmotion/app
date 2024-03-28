@@ -18,7 +18,7 @@
 import axios from 'axios'
 import { MoodMotion } from '@types'
 
-// base url of the api
+/** @todo make dynamic */
 const apiUrl: string = 'http://localhost:3000/v1'
 
 /**
