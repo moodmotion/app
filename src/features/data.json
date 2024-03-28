@@ -47,52 +47,52 @@
             },
             {
                 "id": "65ef38ba5316b19ab4921c62",
-                "title": "",
-                "artist": "",
-                "duration": 0,
-                "cover": "/covers/"
+                "title": "Sexy Back",
+                "artist": "Lucky Luke & Fella",
+                "duration": 156,
+                "cover": "/covers/sexyback.png"
             },
             {
                 "id": "65ef38ba5316b19ab4921c63",
-                "title": "",
-                "artist": "",
-                "duration": 0,
-                "cover": "/covers/"
+                "title": "Asking",
+                "artist": "Sonny Fodera & MK",
+                "duration": 187,
+                "cover": "/covers/asking.png"
             },
             {
                 "id": "65ef38ba5316b19ab4921c64",
-                "title": "",
-                "artist": "",
-                "duration": 0,
-                "cover": "/covers/"
+                "title": "This Is The Sound",
+                "artist": "Riva Starr",
+                "duration": 193,
+                "cover": "/covers/thisisthesound.png"
             },
             {
                 "id": "65ef38ba5316b19ab4921c65",
-                "title": "",
-                "artist": "",
-                "duration": 0,
-                "cover": "/covers/"
+                "title": "Nobody",
+                "artist": "David Penn",
+                "duration": 235,
+                "cover": "/covers/nobody.png"
             },
             {
                 "id": "65ef38ba5316b19ab4921c66",
-                "title": "",
-                "artist": "",
-                "duration": 0,
-                "cover": "/covers/"
+                "title": "Goldigger",
+                "artist": "Dennis Cruz",
+                "duration": 218,
+                "cover": "/covers/goldigger.png"
             },
             {
                 "id": "65ef38ba5316b19ab4921c67",
-                "title": "",
-                "artist": "",
-                "duration": 0,
-                "cover": "/covers/"
+                "title": "Magalenha",
+                "artist": "Joshwa",
+                "duration": 170,
+                "cover": "/covers/magalenha.png"
             },
             {
                 "id": "65ef38ba5316b19ab4921c68",
-                "title": "",
-                "artist": "",
-                "duration": 0,
-                "cover": "/covers/"
+                "title": "Give Me One Reason",
+                "artist": "Tom & Collins",
+                "duration": 427,
+                "cover": "/covers/givemeonereason.png"
             }
         ]
     },

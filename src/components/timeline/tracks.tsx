@@ -1,15 +1,20 @@
 /*
- * Copyright (C) 2024 MoodMotion.io - All Rights Reserved
- *
- *   ----------------------------
- *    Proprietary and confidential
- *   ----------------------------
- *
- * This file is part of the MoodMotion application
- *
- * Unauthorized copying of this file, via any medium is 
- * strictly prohibited.
- */
+    MoodMotion.io, motivate to move
+    Copyright (C) 2024  Martijn Benjamin<benjamin@moodmotion.io>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
 import { Track } from './track'
 
 import seva from '@assets/images/covers/se-va.png'
@@ -81,7 +86,7 @@ const Tracks = ({ duration }: TracksProps) => {
             onDragEnter={dragEnter}
             onDragLeave={dragLeave}
             style={{ width: duration, paddingTop: 20, border: isInDropZone ? '3px dotted green' : 'none', height: 125 }}>
-            <Track title="Se Va" artist="Tom & Collins ft. Cumbiafrica" duration={196} cover={seva} />
+            <Track title="Se Va" artist="Tom & Collins ft. Cumbiafrica" duration={196} cover={'/covers/se-va.png'} />
             <Track title="Vai" artist="Tom & Collins" duration={208} cover={vai} />
             <Track title="Love You Like That" artist="Cloonee" duration={230} cover={love} />
             <Track title="Stan" artist="TWENTY SIX" duration={128} cover={stan} />

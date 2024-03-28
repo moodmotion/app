@@ -1,8 +1,9 @@
 {
-  "name": "moodmotion-composer",
+  "name": "moodmotion",
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "license": "GPL-3.0-only",
   "scripts": {
     "dev": "vite",
     "test": "vitest",
