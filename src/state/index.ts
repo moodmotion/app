@@ -20,6 +20,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { authReducer, dndReducer, layoutReducer } from '@features'
 import { MoodMotion } from '@types'
 import State = MoodMotion.State
+import { createContext } from 'react'
 
 /**
  * Store
@@ -53,8 +54,7 @@ export const user = {
 export const dnd = {
     getTransferData: (state: State) => state.dnd.transferData,
     getDropZone: (state: State) => state.dnd.dropZone,
-    isInDropZone: (state: State) => state.dnd.isInDropZone,
-
+    isInDropZone: (state: State) => state.dnd.isInDropZone
 }
 
 /**
@@ -64,3 +64,7 @@ export const layout = {
     isDrawerOpen: (state: State) => state.layout.isDrawerOpen
 }
 
+/**
+ * Context created for drag and drop guidance
+ */
+export const DnDContext = createContext(null)
