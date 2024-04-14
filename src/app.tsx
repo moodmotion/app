@@ -21,7 +21,7 @@ import { IntlProvider } from 'react-intl'
 import { useSelector } from 'react-redux'
 
 import { messages } from '@language'
-import { user, auth } from '@state'
+import { user, auth, DnDContext } from '@state'
 import Screens from '@screens'
 import theme from '@styles'
 
@@ -36,11 +36,13 @@ export const App = () => {
             key={`${lang}${authenticated}`}
             messages={messages[lang]}>
             <ThemeProvider theme={theme}>
-                <CssBaseline>
-                    <BrowserRouter>
-                        <Screens />
-                    </BrowserRouter>
-                </CssBaseline>
+                <DnDContext.Provider value={null}>
+                    <CssBaseline>
+                        <BrowserRouter>
+                            <Screens />
+                        </BrowserRouter>
+                    </CssBaseline>
+                </DnDContext.Provider>
             </ThemeProvider>
         </IntlProvider>
     )
