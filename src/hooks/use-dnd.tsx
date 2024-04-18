@@ -17,7 +17,7 @@
 */
 import { useState, createContext, ReactNode, useContext, Dispatch, SetStateAction } from 'react'
 
-type LocationType = {
+type Coordinate = {
     top: number,
     left: number
 }
@@ -31,7 +31,7 @@ type BoundingBox = {
 
 type DndContextTypes = {
     location: { top: number, left: number }
-    setLocation: Dispatch<SetStateAction<LocationType>>
+    setLocation: Dispatch<SetStateAction<Coordinate>>
     transferData: string
     setTransferData: Dispatch<SetStateAction<string>>
     dropZone: { top: number, left: number, right: number, bottom: number }
@@ -40,12 +40,21 @@ type DndContextTypes = {
     setIsInDropZone: Dispatch<SetStateAction<boolean>>
 }
 
-export const DnDContext = createContext<DndContextTypes>({})
+export const DnDContext = createContext<DndContextTypes>({
+    dropZone: { bottom: 0, left: 0, right: 0, top: 0 },
+    isInDropZone: false,
+    location: { left: 0, top: 0 },
+    setDropZone: () => { },
+    setIsInDropZone: () => { },
+    setLocation: () => { },
+    setTransferData: () => { },
+    transferData: ''
+})
 
 export const DndProvider = ({ children }: { children: ReactNode }) => {
 
     const [transferData, setTransferData] = useState('')
-    const [location, setLocation] = useState<LocationType>({ top: 0, left: 0 })
+    const [location, setLocation] = useState<Coordinate>({ top: 0, left: 0 })
     const [dropZone, setDropZone] = useState({ top: 0, left: 0, right: 0, bottom: 0 })
     const [isInDropZone, setIsInDropZone] = useState(false)
 
