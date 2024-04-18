@@ -18,15 +18,15 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { GlobalStyles, SwipeableDrawer, Typography } from '@mui/material'
 
-import Composer from '@components/composer'
-import { StyledBox, Puller, Root } from '.'
-import { DrawerContent } from './drawer-content'
-import { layout } from '@state'
 import { closeDrawer, openDrawer } from '@features'
+import { useDnd } from '@hooks'
+import { layout } from '@state'
+import Composer from '@components/composer'
 import { Track } from '@components/timeline/track'
+import { DrawerContent } from './drawer-content'
+import { StyledBox, Puller, Root } from '.'
 
 import imageCover from '@assets/images/covers/aintnootherman.png'
-import { useDnd } from '../../hooks/use-dnd'
 
 const drawerBleeding = 56
 
@@ -43,7 +43,7 @@ export const Drawer = () => {
                 artist='some artist'
                 duration={200}
                 cover={imageCover}
-                style={{ zIndex: 100000000, visibility: location?.top === 0 ? 'hidden' : 'visible', position: 'absolute', top: location?.top, left: location?.left }} />
+                style={{ zIndex: 100000000, visibility: location.top === 0 ? 'hidden' : 'visible', position: 'absolute', top: location.top, left: location.left }} />
 
             <Root style={{ overflow: 'hidden' }}>
 
@@ -89,7 +89,7 @@ export const Drawer = () => {
                             overflow: 'auto',
                         }}>
 
-                        <DrawerContent/>
+                        <DrawerContent />
 
                     </StyledBox>
                 </SwipeableDrawer>

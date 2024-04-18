@@ -36,6 +36,9 @@
       "@features": [
         "./src/features"
       ],
+      "@hooks": [
+        "./src/hooks"
+      ],
       "@language": [
         "./src/language"
       ],
