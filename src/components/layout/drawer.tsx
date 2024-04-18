@@ -21,26 +21,20 @@ import { GlobalStyles, SwipeableDrawer, Typography } from '@mui/material'
 import Composer from '@components/composer'
 import { StyledBox, Puller, Root } from '.'
 import { DrawerContent } from './drawer-content'
-import { DnDContext, layout } from '@state'
+import { layout } from '@state'
 import { closeDrawer, openDrawer } from '@features'
 import { Track } from '@components/timeline/track'
 
 import imageCover from '@assets/images/covers/aintnootherman.png'
 import { useDnd } from '../../hooks/use-dnd'
-import { useContext } from 'react'
 
 const drawerBleeding = 56
 
 export const Drawer = () => {
 
-    const { location, move } = useDnd()
+    const { location } = useDnd()
     const dispatch = useDispatch()
     const isDrawerOpen = useSelector(layout.isDrawerOpen)
-
-    const dndContext = useContext(DnDContext)
-
-    console.info(dndContext)
-
 
     return (
         <>
@@ -49,7 +43,7 @@ export const Drawer = () => {
                 artist='some artist'
                 duration={200}
                 cover={imageCover}
-                style={{ zIndex: 100000000, visibility: location.top === 0 ? 'hidden' : 'visible', position: 'absolute', top: location.top, left: location.left }} />
+                style={{ zIndex: 100000000, visibility: location?.top === 0 ? 'hidden' : 'visible', position: 'absolute', top: location?.top, left: location?.left }} />
 
             <Root style={{ overflow: 'hidden' }}>
 
@@ -95,7 +89,7 @@ export const Drawer = () => {
                             overflow: 'auto',
                         }}>
 
-                        <DrawerContent move={move} />
+                        <DrawerContent/>
 
                     </StyledBox>
                 </SwipeableDrawer>

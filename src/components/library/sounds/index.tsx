@@ -24,11 +24,7 @@ import { Item } from '@components/list/item'
 import { SubHeader } from '@components/list/sub-header'
 import { Filter } from '@components/list/filter'
 
-type TracksProps = {
-    move: Function
-}
-
-export const Tracks = ({ move }: TracksProps) => {
+export const Tracks = () => {
 
     const [currentFilterIndex, setCurrentFilterIndex] = useState<string>('')
     const [currentTrackIndex, setCurrentTrackIndex] = useState<string>('')
@@ -114,7 +110,6 @@ export const Tracks = ({ move }: TracksProps) => {
                         '& ul': { padding: 0 },
                     }}>
                     <Item
-                        move={move}
                         label='Cool track number 1'
                         subHeader='Some other text'
                         id={'65ef38ba5316b19ab4921c56'}
@@ -124,7 +119,6 @@ export const Tracks = ({ move }: TracksProps) => {
                     <Divider />
 
                     <Item
-                        move={move}
                         label='Dope music'
                         subHeader='Some other text'
                         id={'65ef38ba5316b19ab4921c57'}
@@ -134,7 +128,6 @@ export const Tracks = ({ move }: TracksProps) => {
                     <Divider />
 
                     <Item
-                        move={move}
                         label='Baddabing'
                         subHeader='Some other text'
                         id={'65ef38ba5316b19ab4921c58'}

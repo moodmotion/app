@@ -15,20 +15,77 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-import { MoodMotion } from '@types'
-import { useState } from 'react'
+import { useState, createContext, ReactNode, useContext, Dispatch, SetStateAction } from 'react'
+
+type LocationType = {
+    top: number,
+    left: number
+}
+
+type BoundingBox = {
+    top: number,
+    left: number,
+    right: number,
+    bottom: number
+}
+
+type DndContextTypes = {
+    location: { top: number, left: number }
+    setLocation: Dispatch<SetStateAction<LocationType>>
+    transferData: string
+    setTransferData: Dispatch<SetStateAction<string>>
+    dropZone: { top: number, left: number, right: number, bottom: number }
+    setDropZone: Dispatch<SetStateAction<BoundingBox>>
+    isInDropZone: boolean
+    setIsInDropZone: Dispatch<SetStateAction<boolean>>
+}
+
+export const DnDContext = createContext<DndContextTypes>({})
+
+export const DndProvider = ({ children }: { children: ReactNode }) => {
+
+    const [transferData, setTransferData] = useState('')
+    const [location, setLocation] = useState<LocationType>({ top: 0, left: 0 })
+    const [dropZone, setDropZone] = useState({ top: 0, left: 0, right: 0, bottom: 0 })
+    const [isInDropZone, setIsInDropZone] = useState(false)
+
+    return (
+        <DnDContext.Provider value={{
+            location,
+            setLocation,
+            transferData,
+            setTransferData,
+            dropZone,
+            setDropZone,
+            isInDropZone,
+            setIsInDropZone
+        }}>
+            {children}
+        </DnDContext.Provider>
+    )
+}
 
 export const useDnd = () => {
 
-    const [location, setLocation] = useState<MoodMotion.DnDTrack>({ id: undefined, top: 0, left: 0 })
-
-    const move = ({ top, left }: { top: number, left: number }) => {
-        setLocation({ ...location, top, left })
-    }
+    const {
+        location,
+        setLocation,
+        transferData,
+        setTransferData,
+        dropZone,
+        setDropZone,
+        isInDropZone,
+        setIsInDropZone } = useContext(DnDContext)
 
     return {
-        move,
         location,
-        setLocation
+        setLocation,
+        transferData,
+        setTransferData,
+        dropZone,
+        setDropZone,
+        isInDropZone,
+        setIsInDropZone
     }
 }
+
