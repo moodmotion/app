@@ -1,5 +1,5 @@
 /*
-    MoodMotion.io, motivate to move
+    MoodMotion.io, motivated to move
     Copyright (C) 2024  Martijn Benjamin<benjamin@moodmotion.io>
 
     This program is free software: you can redistribute it and/or modify
