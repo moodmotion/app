@@ -17,7 +17,6 @@
 */
 import { Track } from './track'
 
-import seva from '@assets/images/covers/se-va.png'
 import vai from '@assets/images/covers/vai.png'
 import love from '@assets/images/covers/loveyoulikethat.png'
 import stan from '@assets/images/covers/stan.png'
@@ -31,9 +30,7 @@ import gold from '@assets/images/covers/goldigger.png'
 import magalehna from '@assets/images/covers/magalenha.png'
 import give from '@assets/images/covers/givemeonereason.png'
 import { DragEvent, useEffect, useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { dnd } from '@state'
-import { setDropZone } from '../../features/dnd/dndSlice'
+import { useDnd } from '../../hooks/use-dnd'
 
 type TracksProps = {
     duration: number
@@ -41,9 +38,8 @@ type TracksProps = {
 
 const Tracks = ({ duration }: TracksProps) => {
 
-    const dispatch = useDispatch()
-    const isInDropZone = useSelector(dnd.isInDropZone)
     const dropZoneRef = useRef<HTMLDivElement>(null)
+    const { setDropZone, isInDropZone } = useDnd()
 
     const dragOver = (event: DragEvent) => {
         event.preventDefault()
@@ -56,8 +52,8 @@ const Tracks = ({ duration }: TracksProps) => {
         const dragObject = document.getElementById(event.dataTransfer.getData("id")) as HTMLImageElement
         dropZoneRef.current!.appendChild(dragObject)
         dropZoneRef.current!.style.border = "1px solid blue"
-
     }
+
     const dragEnter = () => {
         dropZoneRef.current!.style.border = "dotted"
         dropZoneRef.current!.style.borderColor = "red"
@@ -69,12 +65,12 @@ const Tracks = ({ duration }: TracksProps) => {
 
     useEffect(() => {
         let dimensions = dropZoneRef.current!.getBoundingClientRect()
-        dispatch(setDropZone({
+        setDropZone({
             left: dimensions.left,
             right: dimensions.right,
             top: dimensions.top,
             bottom: dimensions.bottom
-        }))
+        })
     }, [])
 
     return (
