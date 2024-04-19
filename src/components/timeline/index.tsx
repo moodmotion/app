@@ -17,7 +17,6 @@
 */
 import { Grid } from '@mui/material'
 
-import Lights from './lights'
 import Motions from './motions'
 import Tracks from './tracks'
 import Time from './time'
@@ -38,7 +37,7 @@ const Timeline = () => {
                 <Time duration={3000} />
             </Grid>
             <Grid item xs={12}>
-                <Lights duration={2700} />
+                &nbsp;
             </Grid>
             <Grid item xs={12}>
                 <Tracks duration={2700} />

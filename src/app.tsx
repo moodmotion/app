@@ -24,7 +24,7 @@ import { messages } from '@language'
 import { user, auth } from '@state'
 import Screens from '@screens'
 import theme from '@styles'
-import { DndProvider } from './hooks/use-dnd'
+import { DndProvider } from '@hooks'
 
 export const App = () => {
 

@@ -17,11 +17,10 @@
 */
 import { useState } from 'react'
 import { Grid, Tabs, Tab } from '@mui/material'
-import { AccessibilityNew, Lightbulb, MusicNote } from '@mui/icons-material'
+import { AccessibilityNew, MusicNote } from '@mui/icons-material'
 
 import { Tracks } from '@components/library/sounds'
 import { Motions } from '@components/library/motions'
-import { Lights } from '@components/library/lights'
 
 export const DrawerContent = () => {
 
@@ -34,20 +33,16 @@ export const DrawerContent = () => {
                     orientation="vertical"
                     value={index}
                     onChange={(_, newIndex) => setIndex(newIndex)}>
-                    <Tab icon={<Lightbulb sx={{ fontSize: 25 }} />} />
-                    <Tab icon={<AccessibilityNew sx={{ fontSize: 25 }} />} />
                     <Tab icon={<MusicNote sx={{ fontSize: 25 }} />} />
+                    <Tab icon={<AccessibilityNew sx={{ fontSize: 25 }} />} />
                 </Tabs>
             </Grid>
             <Grid item xs={11}>
                 <div hidden={index !== 0} style={{ height: '100%' }}>
-                    <Lights />
+                    <Tracks />
                 </div>
                 <div hidden={index !== 1} style={{ height: '100%' }}>
                     <Motions />
-                </div>
-                <div hidden={index !== 2} style={{ height: '100%' }}>
-                    <Tracks/>
                 </div>
             </Grid>
         </Grid>

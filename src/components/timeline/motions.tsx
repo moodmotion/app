@@ -24,7 +24,7 @@ type MotionsProps = {
 const Motions = ({ duration }: MotionsProps) => {
 
     return (
-        <div style={{ width: duration, paddingTop: 20, clear: 'left' }}>
+        <div style={{ width: duration, clear: 'left' }}>
             <Motion name='Stand' duration={196} />
             <Motion name='Halter / Elastics' duration={208} />
             <Motion name='Stand' duration={230} />
