@@ -17,6 +17,8 @@
 */
 import axios from 'axios'
 import { MoodMotion } from '@types'
+import { GetThunkAPI } from '@reduxjs/toolkit/dist/createAsyncThunk'
+import { Dispatch, UnknownAction } from '@reduxjs/toolkit'
 
 /** @todo make dynamic */
 const apiUrl: string = 'http://localhost:3000/v1'
@@ -37,12 +39,25 @@ const apiError: MoodMotion.ApiError = {
     message: '',
 }
 
+type PostProps = {
+    path: string,
+    data: any,
+    thunkAPI: GetThunkAPI<{
+        rejectValue: MoodMotion.ApiError;
+        state?: unknown;
+        dispatch?: Dispatch<UnknownAction> | undefined;
+        extra?: unknown;
+        serializedErrorType?: unknown;
+        pendingMeta?: unknown;
+        fulfilledMeta?: unknown;
+        rejectedMeta?: unknown;
+    }>
+}
+
 /**
  * Make a POST request to the API
  */
-export const post = async (
-    { path, data = null, thunkAPI }:
-        { path: string, data: any, thunkAPI: any }) => {
+export const post = async ({ path, data = null, thunkAPI }: PostProps) => {
 
     try {
 

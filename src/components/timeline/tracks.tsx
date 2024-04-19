@@ -39,7 +39,7 @@ type TracksProps = {
 const Tracks = ({ duration }: TracksProps) => {
 
     const dropZoneRef = useRef<HTMLDivElement>(null)
-    const { setDropZone, isInDropZone } = useDnd()
+    const { transferData, setDropZone, isInDropZone } = useDnd()
 
     const dragOver = (event: DragEvent) => {
         event.preventDefault()
@@ -47,6 +47,9 @@ const Tracks = ({ duration }: TracksProps) => {
 
     const drop = (event: DragEvent) => {
         event.preventDefault()
+
+        console.info('dropped', transferData)
+
 
         /** @todo get data of dragged object and set/persist in store timeline & API */
         const dragObject = document.getElementById(event.dataTransfer.getData("id")) as HTMLImageElement
