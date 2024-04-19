@@ -52,7 +52,7 @@
         "./src/styles"
       ],
       "@types": [
-        "./src/types"
+        "./src/types/types.ts"
       ]
     }
   },

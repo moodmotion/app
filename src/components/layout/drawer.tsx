@@ -1,6 +1,6 @@
 /*
-    MoodMotion.io, motivated to move
-    Copyright (C) 2024  Martijn Benjamin<benjamin@moodmotion.io>
+    MoveMotion.io
+    Copyright (C) 2024  Martijn Benjamin<benjamin@movemotion.io>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
