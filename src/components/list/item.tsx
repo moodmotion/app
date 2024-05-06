@@ -109,11 +109,11 @@ export const Item = ({ id, index, label, subHeader, avatar, itemClick }: IndexIt
     }
 
     const drag = (event: DragEvent) => {
-        //console.info('drag', event)
+        console.info('drag', event)
     }
 
     const dragEnd = (event: DragEvent) => {
-        //console.info('drag end', transferData)
+        console.info('drag end', transferData, event)
     }
 
     return (
