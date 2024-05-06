@@ -43,13 +43,14 @@ const Tracks = ({ duration }: TracksProps) => {
 
     const dragOver = (event: DragEvent) => {
         event.preventDefault()
+
+        console.info('drag over')
     }
 
     const drop = (event: DragEvent) => {
         event.preventDefault()
 
-        console.info('dropped', transferData)
-
+        console.info('drop', transferData)
 
         /** @todo get data of dragged object and set/persist in store timeline & API */
         const dragObject = document.getElementById(event.dataTransfer.getData("id")) as HTMLImageElement
@@ -58,11 +59,15 @@ const Tracks = ({ duration }: TracksProps) => {
     }
 
     const dragEnter = () => {
+
+        console.info('drag enter')
         dropZoneRef.current!.style.border = "dotted"
         dropZoneRef.current!.style.borderColor = "red"
     }
 
     const dragLeave = () => {
+
+        console.info('drag leave')
         dropZoneRef.current!.style.border = "1px solid blue"
     }
 

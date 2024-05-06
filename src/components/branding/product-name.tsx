@@ -26,7 +26,7 @@ type ProductNameProps = {
 export const ProductName = ({ variant = 'h4' }: ProductNameProps) => {
     return (
         <Typography sx={{ flexGrow: 1 }} variant={variant}>
-            <span>MoodMotion.</span>
+            <span>MoveMotion.</span>
         </Typography>
     )
 }

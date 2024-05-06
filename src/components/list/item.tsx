@@ -16,12 +16,12 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 import { useDispatch, useSelector } from 'react-redux'
-import { DragEvent, MouseEventHandler, TouchEvent } from 'react'
+import { DragEvent, MouseEventHandler, TouchEvent, useRef } from 'react'
 import { Avatar, ListItemAvatar, ListItemButton, ListItemText } from '@mui/material'
 
 import { closeDrawer } from '@features'
 import { layout } from '@state'
-import { useDnd } from '../../hooks/use-dnd'
+import { useDnd } from '@hooks'
 
 type IndexItemProps = {
     id: string
@@ -45,10 +45,12 @@ export const Item = ({ id, index, label, subHeader, avatar, itemClick }: IndexIt
     const { transferData, setTransferData, setLocation, dropZone, isInDropZone, setIsInDropZone } = useDnd()
     const drawerIsOpen = useSelector(layout.isDrawerOpen)
     const dispatch = useDispatch()
+    const ref = useRef<HTMLDivElement | null>(null)
 
     /**
      * Prevent the drawer from sliding when 
-     * dragging & set transfer data 
+     * dragging & set transfer data when 
+     * touch starts
      */
     const touchStart = (event: TouchEvent) => {
         const e = event as MuiTouchEvent
@@ -57,7 +59,17 @@ export const Item = ({ id, index, label, subHeader, avatar, itemClick }: IndexIt
     }
 
     /**
-     * Close drawer when open @todo create moving visual
+     * Set transfer data when dragging starts
+     */
+    const dragStart = (event: DragEvent) => {
+        const e = event as MuiTouchEvent
+        setTransferData(e.target.id)
+        // prevent seeing the default drag image
+        event.dataTransfer.setDragImage(new Image(), 0, 0)
+    }
+
+    /**
+     * Close drawer when open
      * and detect dropzone enter/leave
      */
     const touchMove = (event: TouchEvent) => {
@@ -86,29 +98,42 @@ export const Item = ({ id, index, label, subHeader, avatar, itemClick }: IndexIt
     const touchEnd = () => {
 
         if (isInDropZone) {
+
+            /** @todo add data to store */
             console.info('drop!', transferData)
-        } else {
-            console.info('no drop')
         }
 
-        // reset dragging
+        // reset location & dropzone markings
         setLocation({ top: 0, left: 0 })
+        setIsInDropZone(false)
     }
 
-    const dragStart = (event: DragEvent) => {
-        const e = event as MuiTouchEvent
-        setTransferData(e.target.id)
+    const drag = (event: DragEvent) => {
+        //console.info('drag', event)
+    }
+
+    const dragEnd = (event: DragEvent) => {
+        //console.info('drag end', transferData)
     }
 
     return (
         <ListItemButton
             id={id}
+            ref={ref}
+
+
+
             selected={index === id}
             onClick={itemClick}
             draggable={true}
-            onDragStart={dragStart}
+
             onTouchStart={touchStart}
+            onDragStart={dragStart}
+
             onTouchMove={touchMove}
+            onDrag={drag}
+
+            onDragEnd={dragEnd}
             onTouchEnd={touchEnd}>
             <ListItemAvatar sx={{ pointerEvents: 'none' }}>
                 <Avatar alt={label} src={avatar} sx={{ pointerEvents: 'none' }} />

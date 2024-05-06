@@ -15,7 +15,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-import { AcUnit, ArrowLeft, ArrowRight, Bolt, Cancel, Refresh } from '@mui/icons-material'
+import { AcUnit, ArrowLeft, Bolt, Cancel, Refresh } from '@mui/icons-material'
 import { Tag } from './tag'
 
 export const Tags = ({ duration }: { duration: number }) => {
